@@ -7,23 +7,21 @@
       $firstName = $_POST['firstName'];
       $lastName = $_POST['lastName'];
       $email = $_POST['email'];
-      $password = md5($_POST['password']);
-      $confirm_password = md5($_POST['confirmPassword']);
-      // //checking for valid email address.
-      // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      //   die("Invalid email format");
-      // }
-      //Checking password and confirmation password fields to match each other.
-      if (strcmp($password, $confirm_password) == 0) {
-      header("location: login.php");
-        
+      $password = ($_POST['password']);
+      $confirm_password = ($_POST['confirmPassword']);
+      //RegExpression for checking email address
+      // checking if the password is atleast 8 characters long
+      if(strlen($password) < 8){
+        echo "<script>alert('passwordmust be atleast 8 characters')</script>";
       }else{
-      echo "<script>alert('password and confirm password are not equal')</script>";
-
+          //Checking password and confirmation password fields to match each other.
+        if (strcmp($password, $confirm_password) == 0) {
+          header("location: login.php");
+        }else{
+          echo "<script>alert('password and confirm password are not equal')</script>";
+        }
       }
-
     }
-
   }
 
 ?>
@@ -69,7 +67,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form action="" method="POST" class="user">
+                <form action="register.php" method="POST" class="user">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
@@ -150,7 +148,7 @@
                 </div>
                 <div class="text-center">
                   Already have an account?
-                  <a class="small" href="login.html">Login!</a>
+                  <a class="small" href="login.php">Login!</a>
                 </div>
               </div>
             </div>
