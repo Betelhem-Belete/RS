@@ -1,4 +1,12 @@
 <?php require "header&footer/header.php"; ?>
+<?php
+  
+  if(isset($_POST['submit'])){
+
+    if(empty($_POST['']))
+  }
+
+?>
 
     <div class="signin">
       <div class="back-img">
@@ -37,7 +45,7 @@
         </form>
       </div><!--/.form-section-->
       
-      <a href="./index.html"><button class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
+      <a href="./index.html"><button name='submit' class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
         Sign In
       </button><!--/button--></a>
    </div><!--/.signin-->
