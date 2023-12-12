@@ -10,10 +10,10 @@
             <ul class="navbar-nav justify-content-between ">
               <div class="User_option">
                 <li class="">
-                  <a class="mr-4" href="./admins/login.html">
+                  <a class="mr-4" href="./admins/login.php">
                     Login
                   </a>
-                  <a class="" href="./admins/register.html">
+                  <a class="" href="./admins/register.php">
                     Sign up
                   </a>
                 </li>
@@ -35,12 +35,12 @@
             </div>
             <div id="myNav" class="overlay">
               <div class="overlay-content">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="buy.html">BUY</a>
-                <a href="price.html">PRICING</a>
-                <a href="contact.html">CONTACT US</a>
-                <a href="./admins/index.html">Admin</a>
+                <a href="index.php">HOME</a>
+                <a href="about.php">ABOUT</a>
+                <a href="buy.php">BUY</a>
+                <a href="price.php">PRICING</a>
+                <a href="contact.php">CONTACT US</a>
+                <a href="./admins/index.php">Admin</a>
               </div>
             </div>
           </div>
