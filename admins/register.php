@@ -117,7 +117,7 @@
                       />
                     </div>
                   </div>
-                  <a href="login.html">
+                  <a href="login.php">
                     <input
                       type="submit"
                       name="submit"
@@ -142,7 +142,7 @@
                 </form>
                 <hr />
                 <div class="text-center">
-                  <a class="small" href="forgot-password.html"
+                  <a class="small" href="forgot-password.php"
                     >Forgot Password?</a
                   >
                 </div>

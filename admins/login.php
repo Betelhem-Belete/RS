@@ -7,7 +7,7 @@
       $email = $_POST['email'];
       $password = ($_POST['password']);
       echo "<script>alert('logged in successfully')";
-      header("Location: index.html");
+      header("Location: index.php");
     }
 }
 ?>
