@@ -1,13 +1,21 @@
 <?php
-  if(isset($_POST['submit'])){
+  if(isset($_POST['submitl'])){
 
     if(empty($_POST['email']) OR empty($_POST['password'])){
       echo "<script>alert('some inputs are empty'); </script>";
     } else{
       $email = $_POST['email'];
       $password = ($_POST['password']);
-      echo "<script>alert('logged in successfully')";
-      header("Location: index.html");
+      
+
+      
+      if(strlen($password) < 8){
+        echo "<script>alert('password field is inncorect');</script>";
+      }else{
+        echo "<script>alert('logged in successfully');</script>";
+        header("Location: ../index.html");
+      }
+
     }
 }
 ?>
@@ -55,14 +63,14 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form action="" method="POST" class="user">
+                                    <form action="login.php" method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email" name='email' class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" name='password' class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -72,7 +80,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="" class="btn btn-primary btn-user btn-block">
+                                        <a href="../index.php" name='submitl' class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
                                         <hr>

@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require "header.php"; ?>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Haylu</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../css/emp.css">
-    <link
-    
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -47,7 +22,7 @@
             <!-- Nav Item - Dashboard -->
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin Dashboard</span></a>
             </li>
@@ -62,29 +37,29 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Employee Tables</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="addEmp.html">
+                <a class="nav-link" href="addEmp.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Add Employee</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="addCategory.html">
+                <a class="nav-link" href="addCategory.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Manage Catagoray</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="scadule.html">
+                <a class="nav-link" href="scadule.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Assign Scadule</span></a>
             </li>
@@ -307,14 +282,15 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                </body> <h2> Item Adding Section</h2>
+                <hr style="border: solid 1px rgb(137, 137, 228);">
                     <body>
                         <div class="formbold-main-wrapper">
                             <!-- Author: FormBold Team -->
                             <!-- Learn More: https://formbold.com -->
                             <div class="formbold-form-wrapper">
                                <!-- <img src="your-image-here.jpg"> -->
-                              <form action="" method="POST">
+                              <form action="https://formbold.com/s/FORM_ID" method="POST">
                                 <div class="formbold-input-flex">
                                   <div>
                                     <label for="firstname" class="formbold-form-label"> First Name </label>
@@ -387,9 +363,8 @@
                                   <label for="age" class="formbold-form-label"> Employee Position: </label>
                                   <input
                                     type="text"
-                                    name="EmployeePosition"
-                                    id="EmployeePosition"
-                                    placeholder="Employee Position"
+                                    name="age"
+                                    id="age"
                                     class="formbold-form-input"
                                   />
                                 </div>
@@ -424,22 +399,107 @@
                                   </label>
                                   <input
                                     type="file"
-                                    name="uploadEmployeePic"
-                                    id="uploadEmployeePic"
+                                    name="upload"
+                                    id="upload"
                                     class="formbold-form-file"
                                   />
                                 </div>
                           
-                                <button class="formbold-btn">Add Employee</button>
+                                <button class="formbold-btn">Add Item</button>
+                              </form>
+                            </div>
+                          </div>
+                        
+                    </body> <h2> Category Adding Section</h2>
+                    <hr style="border: solid 1px rgb(137, 137, 228);">
+                   
+                    <body>
+                        <div class="formbold-main-wrapper">
+                            <!-- Author: FormBold Team -->
+                            <!-- Learn More: https://formbold.com -->
+                            <div class="formbold-form-wrapper">
+                               <!-- <img src="your-image-here.jpg"> -->
+                              <form action="https://formbold.com/s/FORM_ID" method="POST">
+                                <div class="formbold-input-flex">
+                                  <div>
+                                    <label for="firstname" class="formbold-form-label"> Category Name </label>
+                                    <input
+                                      type="text"
+                                      name="firstname"
+                                      id="firstname"
+                                      placeholder=" Catagoray name"
+                                      class="formbold-form-input"
+                                    />
+                                  </div>
+                          
+                                  <div>
+                                    <label for="lastname" class="formbold-form-label"> Category Type </label>
+                                    <input
+                                      type="text"
+                                      name="lastname"
+                                      id="lastname"
+                                      placeholder="Catagoray type"
+                                      class="formbold-form-input"
+                                    />
+                                  </div>
+                                </div>
+                          
+                                <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="email" class="formbold-form-label"> Email </label>
+                                      <input
+                                      type="email"
+                                      name="email"
+                                      id="email"
+                                      placeholder="example@email.com"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                          
+                                  <div>
+                                      <label class="formbold-form-label">Category Type</label>
+                          
+                                      <select class="formbold-form-input" name="occupation" id="occupation">
+                                      <option value="male">Male</option>
+                                      <option value="female">Female</option>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="formbold-mb-3">
+                                  <label for="dob" class="formbold-form-label"> Starting day </label>
+                                  <input type="date" name="dob" id="dob" class="formbold-form-input" />
+                                </div>
+                                <div class="formbold-mb-3">
+                                    <label for="message" class="formbold-form-label">
+                                      Category Description
+                                    </label>
+                                    <textarea
+                                      rows="6"
+                                      name="message"
+                                      id="message"
+                                      class="formbold-form-input"
+                                    ></textarea>
+                                  </div>
+                                <div class="formbold-form-file-flex">
+                                  <label for="upload" class="formbold-form-label">
+                                    Upload Picture
+                                  </label>
+                                  <input
+                                    type="file"
+                                    name="upload"
+                                    id="upload"
+                                    class="formbold-form-file"
+                                  />
+                                </div>
+                          
+                                <button class="formbold-btn">Add Category</button>
                               </form>
                             </div>
                           </div>
                         
                     </body>
-                    
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 

@@ -9,7 +9,7 @@
       $email = $_POST['email'];
       $password = ($_POST['password']);
       $confirm_password = ($_POST['confirmPassword']);
-      //RegExpression for checking email address
+      //RegEx for checking email address
       // checking if the password is atleast 8 characters long
       if(strlen($password) < 8){
         echo "<script>alert('passwordmust be atleast 8 characters')</script>";
@@ -117,7 +117,7 @@
                       />
                     </div>
                   </div>
-                  <a href="login.html">
+                  <a href="login.php">
                     <input
                       type="submit"
                       name="submit"

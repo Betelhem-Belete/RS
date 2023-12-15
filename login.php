@@ -1,8 +1,19 @@
+<?php
+  if(isset($_POST['login'])){
+    if(empty($_POST['email'])){
+      echo '<script>alert("Enter your email!");</script>';
+    }
+    if(empty($_POST['password'])){
+      echo '<script>alert("Password is empty!");window.location="index.html";</script>';
+    }
+  }
+?>
+
 <?php require "header&footer/header.php"; ?>
     <div class="signin">
       <div class="back-img">
         <div class="sign-in-text">
-          <h2 class="active">login In</h2>
+          <h2 class="active">Login In</h2>
           <!-- <h2 class="nonactive">login Up</h2> -->
         </div><!--/.sign-in-text-->
         <div class="layer">
@@ -11,10 +22,10 @@
       </div><!--/.back-img-->
       <div class="form-section">
        
-        <form action="#">
+        <form action="#" method='POST'>
           <!--Email-->
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="sample3">
+            <input name='email' class="mdl-textfield__input" type="email" id="sample3">
             <label class="mdl-textfield__label" for="sample3">Email</label>
             <!-- <span class="mdl-textfield__error">Enter a correct Email</span> -->
           </div>
@@ -22,7 +33,7 @@
           <br/>
           <!--Password-->
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input pattern=".{8,}" class="mdl-textfield__input" type="password" id="sample3">
+            <input name='password' pattern=".{8,}" class="mdl-textfield__input" type="password" id="sample3">
             <label class="mdl-textfield__label" for="sample3">Password</label>
             <!-- <span class="mdl-textfield__error">Minimum 8 characters</span> -->
           </div>
@@ -36,7 +47,7 @@
         </form>
       </div><!--/.form-section-->
       
-       <a href="./index.html"><button class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
+       <a href="./index.php"><button name='login' class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
        login In
       </button><!--/button--></a>
    </div><!--/.signin-->

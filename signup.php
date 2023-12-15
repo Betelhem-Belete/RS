@@ -1,12 +1,18 @@
-<?php require "header&footer/header.php"; ?>
 <?php
   
   if(isset($_POST['submit'])){
 
-    if(empty($_POST['']))
+    if(empty($_POST['email']) OR empty($_POST[''])){
+      $error = "Email is required";
+    }
   }
 
-?>
+  ?>
+
+<?php require "header&footer/header.php"; ?>
+
+
+
 
     <div class="signin">
       <div class="back-img">
@@ -23,7 +29,7 @@
         <form action="#">
           <!--Email-->
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="sample3">
+            <input name='email' class="mdl-textfield__input" type="email" id="sample3">
             <label class="mdl-textfield__label" for="sample3">Email</label>
             <!-- <span class="mdl-textfield__error">Enter a correct Email</span> -->
           </div>

@@ -1,39 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<?php require "header.php"; ?>
 
-    <title>SB Admin 2 - Tables</title>
-
-    <!-- Custom fonts for this template -->
-    <link
-      href="vendor/fontawesome-free/css/all.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet"
-    />
-
-    <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-
-    <!-- Custom styles for this page -->
-    <link
-      href="vendor/datatables/dataTables.bootstrap4.min.css"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
@@ -52,9 +18,11 @@
           </div>
           <div class="sidebar-brand-text mx-3">Haylu real state</div>
         </a>
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
+        <!-- Nav Item - Dashboard -->
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
@@ -121,14 +89,12 @@
             class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
           >
             <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-              <button
-                id="sidebarToggleTop"
-                class="btn btn-link d-md-none rounded-circle mr-3"
-              >
-                <i class="fa fa-bars"></i>
-              </button>
-            </form>
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
 
             <!-- Topbar Search -->
             <form
@@ -412,99 +378,158 @@
 
           <!-- Begin Page Content -->
           <div class="container-fluid">
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-            <p class="mb-4">
-              The Haylu Real Estate employee table is a key element in managing
-              personnel information within the company. This table includes
-              crucial details such as employee ID, name, contact information,
-              position, and hiring date. Serving as a centralized database, it
-              facilitates streamlined access to essential employee data for
-              efficient human resource management and organizational planning
-              within the Haylu Real Estate team.
-            </p>
+            <body>
+              <div class="formbold-main-wrapper">
+                <!-- Author: FormBold Team -->
+                <!-- Learn More: https://formbold.com -->
+                <div class="formbold-form-wrapper">
+                  <!-- <img src="your-image-here.jpg"> -->
+                  <form action="" method="POST">
+                    <div class="formbold-input-flex">
+                      <!-- <div>
+                                    <label for="firstname" class="formbold-form-label"> First Name </label>
+                                    <input
+                                      type="text"
+                                      name="firstname"
+                                      id="firstname"
+                                      placeholder=" first name"
+                                      class="formbold-form-input"
+                                    />
+                                  </div> -->
 
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">
-                  DataTables Example
-                </h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                      </tr>
-                    </thead>
-                    <tfoot>
-                      <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <!-- <th>Office</th> -->
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                      </tr>
-                    </tfoot>
-                    <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <!-- <td>Edinburgh</td> -->
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>320,800ETB</td>
-                      </tr>
-                      <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <!-- <td>Tokyo</td> -->
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>170,750ETB</td>
-                      </tr>
-                      <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <!-- <td>San Francisco</td> -->
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>86,000ETB</td>
-                      </tr>
-                      <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <!-- <td>Edinburgh</td> -->
-                        <td>22</td>
-                        <td>2012/03/29</td>
-                        <td>43,060ETB</td>
-                      </tr>
-                      <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
-                        <!-- <td>Tokyo</td> -->
-                        <td>33</td>
-                        <td>2008/11/28</td>
-                        <td>62,700ETB</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                      <!-- <div>
+                                    <label for="lastname" class="formbold-form-label"> Last Name </label>
+                                    <input
+                                      type="text"
+                                      name="lastname"
+                                      id="lastname"
+                                      placeholder=" last name"
+                                      class="formbold-form-input"
+                                    />
+                                  </div>
+                                </div> -->
+
+                      <!-- <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="email" class="formbold-form-label"> Email </label>
+                                      <input
+                                      type="email"
+                                      name="email"
+                                      id="email"
+                                      placeholder="example@email.com"
+                                      class="formbold-form-input"
+                                      />
+                                  </div> -->
+
+                      <div>
+                        <label class="formbold-form-label">Employee</label>
+
+                        <select
+                          class="formbold-form-input"
+                          name="occupation"
+                          id="occupation"
+                        >
+                          <option value="milki">Milki</option>
+                          <option value="yab">Yab</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="formbold-form-label">Customer</label>
+
+                        <select
+                          class="formbold-form-input"
+                          name="occupation"
+                          id="occupation"
+                        >
+                          <option value="male">Henok</option>
+                          <option value="female">Beti</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="formbold-mb-3 formbold-input-wrapp">
+                      <label for="phone" class="formbold-form-label">
+                        Customer Phone
+                      </label>
+
+                      <div>
+                        <input
+                          type="text"
+                          name="areacode"
+                          id="areacode"
+                          placeholder="Area code"
+                          class="formbold-form-input formbold-w-45"
+                        />
+
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          placeholder="Phone number"
+                          class="formbold-form-input"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- <div class="formbold-mb-3">
+                                  <label for="age" class="formbold-form-label"> Employee Position: </label>
+                                  <input
+                                    type="text"
+                                    name="age"
+                                    id="age"
+                                    placeholder="Employee Position"
+                                    class="formbold-form-input"
+                                  />
+                                </div> -->
+
+                    <div class="formbold-mb-3">
+                      <label for="dob" class="formbold-form-label">
+                        Apointment Date
+                      </label>
+                      <input
+                        type="date"
+                        name="dob"
+                        id="dob"
+                        class="formbold-form-input"
+                      />
+                    </div>
+
+                    <!-- <div class="formbold-mb-3">
+                                  <label for="address" class="formbold-form-label"> Address </label>
+                          
+                                  <input
+                                    type="text"
+                                    name="address"
+                                    id="address"
+                                    placeholder="Street address"
+                                    class="formbold-form-input formbold-mb-3"
+                                  />
+                                  <input
+                                    type="text"
+                                    name="address2"
+                                    id="address2"
+                                    placeholder="Street address line 2"
+                                    class="formbold-form-input"
+                                  />
+                                </div> -->
+
+                    <!-- <div class="formbold-form-file-flex">
+                                  <label for="upload" class="formbold-form-label">
+                                    Upload Picture
+                                  </label>
+                                  <input
+                                    type="file"
+                                    name="upload"
+                                    id="upload"
+                                    class="formbold-form-file"
+                                  />
+                                </div> -->
+
+                    <button class="formbold-btn">Assign date</button>
+                  </form>
                 </div>
               </div>
-            </div>
+            </body>
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -542,10 +567,11 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
   </body>
 </html>
