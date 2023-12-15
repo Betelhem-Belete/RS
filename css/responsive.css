@@ -3,10 +3,6 @@
 }
 
 @media (max-width: 992px) {
-  .User_option {
-    display: none;
-  }
-
   .sale_section .sale_container .box {
     -ms-flex-preferred-size: 48%;
     flex-basis: 48%;
@@ -15,7 +11,7 @@
 
   .sale_section .sale_container .box {
     -ms-flex-preferred-size: 98%;
-    flex-basis: 98%;
+    /* flex-basis: 98%; */
     margin: 1%;
 
   }
@@ -27,8 +23,13 @@
     background-color: #e9eefc;
     height: auto;
   }
-
-
+#home_nav a{
+  color: black;
+  margin-right: 1rem;
+}
+  .User_option a{
+    color: white;
+  }
   .custom_menu-btn button span {
     background-color: #0f2480;
   }
@@ -145,7 +146,12 @@
   .slider_section .detail-box h1 {
     font-size: 3rem;
   }
+  .sale_section .sale_container .box {
+    -ms-flex-preferred-size: 98%;
+    flex-basis: 98%;
+    margin: 1%;
 
+  }
   .client_section .client_container div#carouselExampleControls {
     padding: 0 5%;
   }

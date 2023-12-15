@@ -6,16 +6,17 @@
     } else{
       $email = $_POST['email'];
       $password = ($_POST['password']);
-      
+ 
 
       
       if(strlen($password) < 8){
         echo "<script>alert('password field is inncorect');</script>";
       }else{
         echo "<script>alert('logged in successfully');</script>";
-        header("Location: ../index.html");
+        
+      
+       header("Location: index.php");
       }
-
     }
 }
 ?>

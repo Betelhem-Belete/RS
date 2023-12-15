@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
-           <h2>Haylu</h2>
+           <h2 style="color : white ">Haylu</h2>
           </a>
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">
@@ -42,7 +42,7 @@
                 <a href="buy.php">BUY</a>
                 <a href="price.php">PRICING</a>
                 <a href="contact.php">CONTACT US</a>
-                <a href="./material-dashboard-master/index.php">Admin</a>
+                <a href="./admins/index.php">Admin</a>
               </div>
             </div>
           </div>

@@ -31,11 +31,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Haylu real State</div>
             </a>
 
             <!-- Divider -->
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -60,29 +60,29 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Employee Tables</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="addEmp.html">
+                <a class="nav-link" href="addEmp.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Add Employee</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="addCategory.html">
+                <a class="nav-link" href="addCategory.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Manage Catagoray</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="scadule.html">
+                <a class="nav-link" href="scadule.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Assign Scadule</span></a>
             </li>
@@ -316,7 +316,7 @@
                         <div class="error mx-auto" data-text="404">404</div>
                         <p class="lead text-gray-800 mb-5">Page Not Found</p>
                         <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                        <a href="index.html">&larr; Back to Dashboard</a>
+                        <a href="index.php">&larr; Back to Dashboard</a>
                     </div>
 
                 </div>
@@ -360,7 +360,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Logout</a>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="index.php"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -23,7 +23,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Admin Dashboard</span></a
           >
@@ -37,7 +37,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="charts.php">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a
           >
@@ -45,13 +45,13 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="tables.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Employee Tables</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="addEmp.html">
+          <a class="nav-link" href="addEmp.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Add Employee</span></a
           >
@@ -62,14 +62,22 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Manage Catagoray</span></a
           >
+          <li class="nav-item">
+          <a class="nav-link" href="addProperty.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Manage Property</span></a
+          >
+        </li>
         </li>
         <li class="nav-item">
+
           <a class="nav-link" href="addProperty.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Manage Property</span></a
           >
         </li>
         <li class="nav-item">
+
           <a class="nav-link" href="scadule.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Assign Scadule</span></a
