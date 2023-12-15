@@ -5,7 +5,7 @@
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
-<h2>Haylu</h2>          
+<h2 style="color : white ">Haylu</h2>          
           </a>
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">
@@ -34,16 +34,16 @@
                 </span>
               </button>
             </div>
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-                <a href="index.php">HOME</a>
-                <a href="about.php">ABOUT</a>
-                <a href="buy.php">HOUSE</a>
-                <a href="price.php">PRICING</a>
-                <a href="contact.php">CONTACT US</a>
-                <a href="./material-dashboard-master/index.php">Admin</a>
-              </div>
+           <div id="myNav" class="overlay">
+            <div class="overlay-content">
+              <a href="index.php">HOME</a>
+              <a href="about.php">ABOUT</a>
+              <a href="buy.php">BUY</a>
+              <a href="price.php">PRICING</a>
+              <a href="contact.php">CONTACT US</a>
+              <a href="./admins/index.php">Admin</a>
             </div>
+          </div>
           </div>
         </nav>
       </div>

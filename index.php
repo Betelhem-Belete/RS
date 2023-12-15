@@ -9,12 +9,15 @@
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">
               <div class="User_option">
-                <li class="">
+                <li class="" id="home_nav">
                   <a class="mr-4" href="./admins/login.php">
                     Login
                   </a>
                   <a class="" href="./admins/register.php">
                     Sign up
+                  </a>
+                  <a class="" href="./user_Profile/profile.php">
+                    Profile
                   </a>
                 </li>
               </div>
@@ -186,6 +189,7 @@
             <p>
               There are many variations of passages of Lorem Ipsum available, but
             </p>
+            
           </div>
         </div>
         <div class="box">

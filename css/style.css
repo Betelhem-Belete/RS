@@ -536,7 +536,6 @@ a:focus {
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
-
 .price_section .price_container .box .detail-box .text-box h2::before {
   content: "";
   position: absolute;
