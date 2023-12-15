@@ -26,6 +26,7 @@
 
 <body id="page-top">
 
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -34,7 +35,9 @@
 
             <!-- Sidebar - Brand -->
             <!-- Sidebar - Brand -->
+
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -84,12 +87,14 @@
                     <span>Manage Catagoray</span></a>
             </li>
             <li class="nav-item">
+
           <a class="nav-link" href="addProperty.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Manage Property</span></a
           >
         </li>
             <li class="nav-item">
+
                 <a class="nav-link" href="scadule.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Assign Scadule</span></a>

@@ -41,6 +41,7 @@
                 <a href="index.php">HOME</a>
                 <a href="about.php">ABOUT</a>
                 <a href="buy.php">BUY</a>
+                <a href="rent.php">RENT</a>
                 <a href="price.php">PRICING</a>
                 <a href="contact.php">CONTACT US</a>
                 <a href="./admins/index.php">Admin</a>
@@ -59,14 +60,14 @@
             <div class="detail-box">
               <h1>
                 <span> Modern</span> <br>
-                Apartment <br>
-                House
+                Real <br>
+                Estate <br>
               </h1>
               <p>
                 It is a long established fact that a reader will be distracted by the readable content of
               </p>
               <div class="btn-box">
-                <a href="" class="">
+                <a href="about.php" class="">
                   Read More
                 </a>
               </div>
@@ -153,72 +154,83 @@
       </div>
       <div class="sale_container">
         <div class="box">
-          <div class="img-box">
-            <img src="images/s-1.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-          </div>
+          <a href="propertyDetails.php" class=""> 
+            <div class="img-box">
+              <img src="images/s-1.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6>
+                apertments house
+              </h6>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but
+              </p>
+            </div>
+          </a>
         </div>
         <div class="box">
-          <div class="img-box">
-            <img src="images/s-2.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-          </div>
+        <a href="propertyDetails.php" class=""> 
+            <div class="img-box">
+              <img src="images/s-2.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6>
+                apertments house
+              </h6>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but
+              </p>
+            </div>
+</a>
         </div>
         <div class="box">
-          <div class="img-box">
-            <img src="images/s-3.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-            
-          </div>
+          <a href="propertyDetails.php" class=""> 
+            <div class="img-box">
+              <img src="images/s-3.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6>
+                apertments house
+              </h6>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but
+              </p>
+            </div>
+</a>
         </div>
         <div class="box">
-          <div class="img-box">
-            <img src="images/s-4.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-          </div>
+        <a href="propertyDetails.php" class=""> 
+            <div class="img-box">
+              <img src="images/s-4.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6>
+                apertments house
+              </h6>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but
+              </p>
+            </div>
+</a>
         </div>
         <div class="box">
-          <div class="img-box">
-            <img src="images/s-5.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-          </div>
+          <a href="propertyDetails.php" class=""> 
+            <div class="img-box">
+              <img src="images/s-5.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6>
+                apertments house
+              </h6>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but
+              </p>
+            </div>
+</a>
         </div>
         <div class="box">
+        <a href="propertyDetails.php" class=""> 
+
           <div class="img-box">
             <img src="images/s-6.jpg" alt="">
           </div>
@@ -230,10 +242,11 @@
               There are many variations of passages of Lorem Ipsum available, but
             </p>
           </div>
+</a>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="properties.php">
           Find More
         </a>
       </div>
