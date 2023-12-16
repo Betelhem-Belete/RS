@@ -1,6 +1,28 @@
 <?php
   require_once('config.php');
- 
+  if(isset($_POST['submit'])){
+    if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
+      echo "<script>alert('some inputs are empty'); </script>";
+    } else{
+      $firstName = $_POST['firstName'];
+      $lastName = $_POST['lastName'];
+      $email = $_POST['email'];
+      $password = ($_POST['password']);
+      $confirm_password = ($_POST['confirmPassword']);
+      //RegEx for checking email address
+      // checking if the password is atleast 8 characters long
+      if(strlen($password) < 8){
+        echo "<script>alert('passwordmust be atleast 8 characters');</script>";
+      }else{
+          //Checking password and confirmation password fields to match each other.
+        if (strcmp($password, $confirm_password) == 0) {
+          header("location: login.php");
+        }else{
+          echo "<script>alert('password and confirm password are not equal');</script>";
+        }
+      }
+    }
+  }
 
 ?>
 
@@ -39,7 +61,7 @@
         <div class="card-body p-0">
           <!-- Nested Row within Card Body -->
           <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-5 d-none d-lg-block "></div>
             <div class="col-lg-7">
               <div class="p-5">
                 <div class="text-center">
