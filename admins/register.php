@@ -1,29 +1,6 @@
 <?php
   require_once('config.php');
-  if(isset($_POST['submit'])){
-
-    if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
-      echo "<script>alert('some inputs are empty'); </script>";
-    } else{
-      $firstName = $_POST['firstName'];
-      $lastName = $_POST['lastName'];
-      $email = $_POST['email'];
-      $password = ($_POST['password']);
-      $confirm_password = ($_POST['confirmPassword']);
-      //RegEx for checking email address
-      // checking if the password is atleast 8 characters long
-      if(strlen($password) < 8){
-        echo "<script>alert('passwordmust be atleast 8 characters')</script>";
-      }else{
-          //Checking password and confirmation password fields to match each other.
-        if (strcmp($password, $confirm_password) == 0) {
-          header("location: login.php");
-        }else{
-          echo "<script>alert('password and confirm password are not equal')</script>";
-        }
-      }
-    }
-  }
+ 
 
 ?>
 
@@ -68,7 +45,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form action="register.php" method="POST" class="user">
+                <form action="" method="POST" class="user">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
