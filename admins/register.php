@@ -1,4 +1,5 @@
 <?php
+  require_once('config.php');
   if(isset($_POST['submit'])){
 
     if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
@@ -126,9 +127,12 @@
                     />
                   </a>
                   <hr />
+                  <button type='submit' class="btn btn-google btn-user btn-block"
+                    onclick="window.location = '<?php echo $signup ?>'"><i class="fab fa-google fa-fw"></i> Register with Google</button>
                   <!-- <a
-                    href="index.html"
+                    href="index.php"
                     class="btn btn-google btn-user btn-block"
+                    onclick="window.location = '<?php echo $signup ?>'"
                   >
                     <i class="fab fa-google fa-fw"></i> Register with Google
                   </a> -->
