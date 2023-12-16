@@ -1,4 +1,6 @@
-Haylu Real Estate
+  Haylu Real Estate
+
+
 -> This is a real estates company web app built using html, css, bootstrap, javascript, php and mysql.
 -> It has 3 users - Client
                - Owner/ Admin and 
