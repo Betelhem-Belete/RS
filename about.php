@@ -75,9 +75,7 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in
-              some form, by injected humour, or randomised words
+            Welcome to Haylu Real Estate, where we transform spaces into sanctuaries and aspirations into addresses.
             </p>
             <a href="">
               Read More

@@ -1,5 +1,6 @@
 <?php
   // require_once('../config/config.php');
+  require ''
   if(isset($_POST['submit'])){
     if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
       echo "<script>alert('some inputs are empty'); </script>";
