@@ -1,6 +1,6 @@
 <?php
+  require_once('config.php');
   if(isset($_POST['submit'])){
-
     if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
       echo "<script>alert('some inputs are empty'); </script>";
     } else{
@@ -12,13 +12,13 @@
       //RegEx for checking email address
       // checking if the password is atleast 8 characters long
       if(strlen($password) < 8){
-        echo "<script>alert('passwordmust be atleast 8 characters')</script>";
+        echo "<script>alert('passwordmust be atleast 8 characters');</script>";
       }else{
           //Checking password and confirmation password fields to match each other.
         if (strcmp($password, $confirm_password) == 0) {
           header("location: login.php");
         }else{
-          echo "<script>alert('password and confirm password are not equal')</script>";
+          echo "<script>alert('password and confirm password are not equal');</script>";
         }
       }
     }
@@ -61,13 +61,13 @@
         <div class="card-body p-0">
           <!-- Nested Row within Card Body -->
           <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-5 d-none d-lg-block "></div>
             <div class="col-lg-7">
               <div class="p-5">
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form action="register.php" method="POST" class="user">
+                <form action="" method="POST" class="user">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
@@ -126,9 +126,12 @@
                     />
                   </a>
                   <hr />
+                  <button type='submit' class="btn btn-google btn-user btn-block"
+                    onclick="window.location = '<?php echo $signup ?>'"><i class="fab fa-google fa-fw"></i> Register with Google</button>
                   <!-- <a
-                    href="index.html"
+                    href="index.php"
                     class="btn btn-google btn-user btn-block"
+                    onclick="window.location = '<?php echo $signup ?>'"
                   >
                     <i class="fab fa-google fa-fw"></i> Register with Google
                   </a> -->
