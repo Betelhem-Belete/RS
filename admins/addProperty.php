@@ -1,5 +1,4 @@
 <?php require "header.php"; ?>
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -8,7 +7,7 @@
 
             <!-- Sidebar - Brand -->
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -58,14 +57,6 @@
                     <span>Manage Catagoray</span></a>
             </li>
             <li class="nav-item">
-
-          <a class="nav-link" href="addProperty.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Manage Property</span></a
-          >
-        </li>
-            <li class="nav-item">
-
                 <a class="nav-link" href="scadule.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Assign Scadule</span></a>
@@ -289,7 +280,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                </body> <h2> Property Adding Section</h2>
+                </body> <h2> Item Adding Section</h2>
                 <hr style="border: solid 1px rgb(137, 137, 228);">
                     <body>
                         <div class="formbold-main-wrapper">
@@ -417,8 +408,94 @@
                             </div>
                           </div>
                         
-                    </body> 
-                    <hr style="border: solid 1px rgb(137, 137, 228);">                  
+                    </body> <h2> Category Adding Section</h2>
+                    <hr style="border: solid 1px rgb(137, 137, 228);">
+                   
+                    <body>
+                        <div class="formbold-main-wrapper">
+                            <!-- Author: FormBold Team -->
+                            <!-- Learn More: https://formbold.com -->
+                            <div class="formbold-form-wrapper">
+                               <!-- <img src="your-image-here.jpg"> -->
+                              <form action="https://formbold.com/s/FORM_ID" method="POST">
+                                <div class="formbold-input-flex">
+                                  <div>
+                                    <label for="firstname" class="formbold-form-label"> Category Name </label>
+                                    <input
+                                      type="text"
+                                      name="firstname"
+                                      id="firstname"
+                                      placeholder=" Catagoray name"
+                                      class="formbold-form-input"
+                                    />
+                                  </div>
+                          
+                                  <div>
+                                    <label for="lastname" class="formbold-form-label"> Category Type </label>
+                                    <input
+                                      type="text"
+                                      name="lastname"
+                                      id="lastname"
+                                      placeholder="Catagoray type"
+                                      class="formbold-form-input"
+                                    />
+                                  </div>
+                                </div>
+                          
+                                <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="email" class="formbold-form-label"> Email </label>
+                                      <input
+                                      type="email"
+                                      name="email"
+                                      id="email"
+                                      placeholder="example@email.com"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                          
+                                  <div>
+                                      <label class="formbold-form-label">Category Type</label>
+                          
+                                      <select class="formbold-form-input" name="occupation" id="occupation">
+                                      <option value="male">Male</option>
+                                      <option value="female">Female</option>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="formbold-mb-3">
+                                  <label for="dob" class="formbold-form-label"> Starting day </label>
+                                  <input type="date" name="dob" id="dob" class="formbold-form-input" />
+                                </div>
+                                <div class="formbold-mb-3">
+                                    <label for="message" class="formbold-form-label">
+                                      Category Description
+                                    </label>
+                                    <textarea
+                                      rows="6"
+                                      name="message"
+                                      id="message"
+                                      class="formbold-form-input"
+                                    ></textarea>
+                                  </div>
+                                <div class="formbold-form-file-flex">
+                                  <label for="upload" class="formbold-form-label">
+                                    Upload Picture
+                                  </label>
+                                  <input
+                                    type="file"
+                                    name="upload"
+                                    id="upload"
+                                    class="formbold-form-file"
+                                  />
+                                </div>
+                          
+                                <button class="formbold-btn">Add Category</button>
+                              </form>
+                            </div>
+                          </div>
+                        
+                    </body>
                 </div>
                 <!-- /.container-fluid -->
             </div>

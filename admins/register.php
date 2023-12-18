@@ -1,5 +1,5 @@
 <?php
-  require_once('config.php');
+  // require_once('../config/config.php');
   if(isset($_POST['submit'])){
     if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
       echo "<script>alert('some inputs are empty'); </script>";
@@ -52,7 +52,7 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="css/sb-admin-2.min.css" rel="stylesheet"/>
   </head>
 
   <body class="bg-gradient-primary">
@@ -126,12 +126,12 @@
                     />
                   </a>
                   <hr />
-                  <button type='submit' class="btn btn-google btn-user btn-block"
-                    onclick="window.location = '<?php echo $signup ?>'"><i class="fab fa-google fa-fw"></i> Register with Google</button>
+                  <!-- <button type='submit' class="btn btn-google btn-user btn-block"
+                    onclick="window.location = ''"><i class="fab fa-google fa-fw"></i> Register with Google</button> -->
                   <!-- <a
                     href="index.php"
                     class="btn btn-google btn-user btn-block"
-                    onclick="window.location = '<?php echo $signup ?>'"
+                    onclick="window.location = ''"
                   >
                     <i class="fab fa-google fa-fw"></i> Register with Google
                   </a> -->
@@ -146,8 +146,7 @@
                 <hr />
                 <div class="text-center">
                   <a class="small" href="forgot-password.php"
-                    >Forgot Password?</a
-                  >
+                    >Forgot Password?</a>
                 </div>
                 <div class="text-center">
                   Already have an account?
