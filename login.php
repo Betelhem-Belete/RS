@@ -1,55 +1,128 @@
 <?php
-  if(isset($_POST['login'])){
-    if(empty($_POST['email'])){
-      echo '<script>alert("Enter your email!");</script>';
+  if(isset($_POST['submitl'])){
+
+    if(empty($_POST['email']) OR empty($_POST['password'])){
+      echo "<script>alert('some inputs are empty'); </script>";
+    } else{
+      $email = $_POST['email'];
+      $password = ($_POST['password']);
+ 
+
+      
+      if(strlen($password) < 8){
+        echo "<script>alert('password field is inncorect');</script>";
+      }else{
+        echo "<script>alert('logged in successfully');</script>";
+        
+      
+       header("Location: index.php");
+      }
     }
-    if(empty($_POST['password'])){
-      echo '<script>alert("Password is empty!");window.location="index.html";</script>';
-    }
-  }
+}
 ?>
 
-<?php require "header&footer/header.php"; ?>
-    <div class="signin">
-      <div class="back-img">
-        <div class="sign-in-text">
-          <h2 class="active">Login In</h2>
-          <!-- <h2 class="nonactive">login Up</h2> -->
-        </div><!--/.sign-in-text-->
-        <div class="layer">
-        </div><!--/.layer-->
-        <p class="point">&#9650;</p>
-      </div><!--/.back-img-->
-      <div class="form-section">
-       
-        <form action="#" method='POST'>
-          <!--Email-->
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input name='email' class="mdl-textfield__input" type="email" id="sample3">
-            <label class="mdl-textfield__label" for="sample3">Email</label>
-            <!-- <span class="mdl-textfield__error">Enter a correct Email</span> -->
-          </div>
-          <br/>
-          <br/>
-          <!--Password-->
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input name='password' pattern=".{8,}" class="mdl-textfield__input" type="password" id="sample3">
-            <label class="mdl-textfield__label" for="sample3">Password</label>
-            <!-- <span class="mdl-textfield__error">Minimum 8 characters</span> -->
-          </div>
-          <br/>
-          <p class="forgot-text">Forgot Password ?</p>
-          <!--CheckBox-->
-          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
-          <span class="keep-text mdl-checkbox__label">Keep me Signed In</span>
-        </label>
-        </form>
-      </div><!--/.form-section-->
-      
-       <a href="./index.php"><button name='login' class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
-       login In
-      </button><!--/button--></a>
-   </div><!--/.signin-->
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="admins/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="admins/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <img src="images/realestatelogin.jpg" alt="" style='width:500px; height: 465px;'>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form action="login.php" method="POST" class="user">
+                                        <div class="form-group">
+                                            <input type="email" name='email' class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name='password' class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
+                                        <a href="../index.php" name='submitl' class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a>
+                                        <hr>
+                                        <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a> -->
+                                    </form>
+                                    <!-- <hr> -->
+                                    <!-- <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div> -->
+                                    <div class="text-center">
+                                        <a class="small" href="register.php">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
 </html>

@@ -10,10 +10,10 @@
             <ul class="navbar-nav justify-content-between ">
               <div class="User_option">
                 <li class="" id="home_nav">
-                  <a class="mr-4" href="./admins/login.php">
+                  <a class="mr-4" href="login.php">
                     Login
                   </a>
-                  <a class="" href="./admins/register.php">
+                  <a class="mr-4" href="signup.php">
                     Sign up
                   </a>
                   <a class="" href="./user_Profile/profile.php">
@@ -40,6 +40,7 @@
               <div class="overlay-content">
                 <a href="index.php">HOME</a>
                 <a href="about.php">ABOUT</a>
+                <a href="properties.php">PROPERTIES</a>
                 <a href="buy.php">BUY</a>
                 <a href="rent.php">RENT</a>
                 <a href="price.php">PRICING</a>
@@ -64,7 +65,7 @@
                 Estate <br>
               </h1>
               <p>
-                It is a long established fact that a reader will be distracted by the readable content of
+              Welcome to Haylu Real Estate, where we transform spaces into sanctuaries and aspirations into addresses.
               </p>
               <div class="btn-box">
                 <a href="about.php" class="">
@@ -121,13 +122,11 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Our Apartment
+                About Our Properties
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in
-              some form, by injected humour, or randomised words
+            Welcome to Haylu Real Estate, where luxury and comfort unite. Our stylish spaces redefine modern living, offering a perfect blend of sophistication and convenience. Experience a lifestyle of elegance and practicality. Welcome home.
             </p>
             <a href="">
               Read More
@@ -412,9 +411,7 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in
-              some form, by injected humour, or randomised words which don't look even slightly believable.
+            Seize the opportunity of a lifetime! Your dream home awaits with an unbeatable offer. A home so perfect, it's not just a house; it's a steal of a deal waiting for you to call it home. Don't miss out on the chance to make memories in your new haven. It's not just a good deal; it's the key to a brighter future.  
             </p>
             <a href="">
               Get A Quote

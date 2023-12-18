@@ -58,10 +58,10 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          House For Sale
+          Our Properties
         </h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available, but the
+          We have many variations of Properties with different Type and Price for you!
         </p>
       </div>
       <div class="sale_container">
@@ -144,10 +144,10 @@
           </div>
         </div>
       </div>
-      <div class="btn-box">
+      <!-- <div class="btn-box">
         <a href="">
           Find More
         </a>
-      </div>
+      </div> -->
     </div>
     <?php require "header&footer/footer.php"; ?>

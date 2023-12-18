@@ -55,34 +55,27 @@
             </h5>
             <ul>
               <li>
-                <a href="">
-                  There are many
-                </a>
+                <a href="about.php">ABOUT</a>
               </li>
               <li>
-                <a href="">
-                  variations of
-                </a>
+              <a href="properties.php">PROPERTIES</a>
+
               </li>
               <li>
-                <a href="">
-                  passages of
-                </a>
+              <a href="buy.php">BUY</a>
+
               </li>
               <li>
-                <a href="">
-                  Lorem Ipsum
-                </a>
+              <a href="rent.php">RENT</a>
+
               </li>
               <li>
-                <a href="">
-                  available, but
-                </a>
+              <a href="price.php">PRICING</a>
+
               </li>
               <li>
-                <a href="">
-                  the i
-                </a>
+              <a href="contact.php">CONTACT US</a>
+
               </li>
             </ul>
           </div>
@@ -99,17 +92,17 @@
               </button>
             </form>
             <div class="social_box">
-              <a href="">
-                <img src="images/fb.png" alt="">
+              <a href="http://facebook.com">
+                <img src="images/fb.png" alt="fb">
               </a>
-              <a href="">
-                <img src="images/twitter.png" alt="">
+              <a href="http://x.com">
+                <img src="images/twitter.png" alt="x">
               </a>
-              <a href="">
-                <img src="images/linkedin.png" alt="">
+              <a href="http://linkedin.com">
+                <img src="images/linkedin.png" alt="linkedin">
               </a>
-              <a href="">
-                <img src="images/youtube.png" alt="">
+              <a href="http://youtube.com">
+                <img src="images/youtube.png" alt="youtube">
               </a>
             </div>
           </div>
