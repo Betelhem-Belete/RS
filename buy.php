@@ -5,7 +5,7 @@
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
-<h2 style="color : white ">Haylu</h2>          
+          <h2 style="color : white ">Haylu</h2>          
           </a>
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">

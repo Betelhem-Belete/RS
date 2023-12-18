@@ -71,15 +71,12 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Our Apartment
+                About Our Real Esate
               </h2>
             </div>
             <p>
-            Welcome to Haylu Real Estate, where we transform spaces into sanctuaries and aspirations into addresses.
+            Welcome to Haylu Real Estate, where we transform spaces into Homes and aspirations into addresses.
             </p>
-            <a href="">
-              Read More
-            </a>
           </div>
         </div>
       </div>
@@ -107,9 +104,6 @@
               in
               some form, by injected humour, or randomised words
             </p>
-            <a href="">
-              Read More
-            </a>
           </div>
         </div>
       </div>
@@ -129,7 +123,7 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Our Apartment
+                About Developers
               </h2>
             </div>
             <p>
@@ -137,7 +131,7 @@
               in
               some form, by injected humour, or randomised words
             </p>
-            <a href="">
+            <a href="Developers.php">
               Read More
             </a>
           </div>

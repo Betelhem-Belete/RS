@@ -1,10 +1,11 @@
-<?php require "header&footer/header.php"; ?>
-<div class="hero_area">
+<?php require "header&footer/head_sub_page.php"; ?>
+
+  <div class="hero_area mb-5">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
-          <h2>Haylu</h2>
+<h2 style="color : white ">Haylu</h2>           
           </a>
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">
@@ -38,7 +39,6 @@
                 <a href="index.php">HOME</a>
                 <a href="about.php">ABOUT</a>
                 <a href="buy.php">BUY</a>
-                <a href="rent.php">RENT</a>
                 <a href="price.php">PRICING</a>
                 <a href="contact.php">CONTACT US</a>
                 <a href="./admins/index.php">Admin</a>
@@ -49,35 +49,9 @@
       </div>
     </header>
     <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section mb-4">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-4 offset-md-1">
-            <div class="detail-box">
-              <h1>
-                <span> Modern</span> <br>
-                Real <br>
-                Estate <br>
-              </h1>
-              <p>
-                It is a long established fact that a reader will be distracted by the readable content of
-              </p>
-              <div class="btn-box">
-                <a href="about.php" class="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end slider section -->
   </div>
-
   <div
-      class="site-blocks-cover inner-page-cover overlay"
+      class="site-blocks-cover inner-page-cover overlay mt-5"
       style="background-image: url(images/3.jpg)"
       data-aos="fade"
       data-stellar-background-ratio="0.5"
