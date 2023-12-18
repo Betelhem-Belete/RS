@@ -20,16 +20,15 @@
                 </li>
               </div>
             </ul>
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1">
 
-            <div class="custom_menu-btn">
-              <button onclick="openNav()">
-                <span class="s-1">
+              </span>
+              <span class="s-2">
 
-                </span>
-                <span class="s-2">
-
-                </span>
-                <span class="s-3">
+              </span>
+              <span class="s-3">
 
                 </span>
               </button>
@@ -50,7 +49,7 @@
     </header>
     <!-- end header section -->
   </div>
-  <div
+ <div
       class="site-blocks-cover inner-page-cover overlay mt-5"
       style="background-image: url(images/3.jpg)"
       data-aos="fade"

@@ -1,27 +1,27 @@
 <?php
-try{
-    //host 
+try {
+    // host
     define('HOSTNAME', 'localhost');
 
-    //DBNAME
-    define('DBNAME','haylu');
+    // DBNAME
+    define('DBNAME', 'haylu');
 
-    //user
+    // user
     define('USER', 'root');
 
-    //pass
+    // pass
     define('PASS', '');
-
-    $conn = new PDO("mysql:host=".HOSTNAME.";dbname=".DBNAME.";",USER, PASS);
+    $conn = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DBNAME . ";", USER, PASS);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // if($conn == true) {
-    //     echo 'db connected';
-    // } else {
-    //     echo 'error';
-    // }
-    } catch(PDOException $e){
-        die("database connection failed: " . $e->getMessage());
-    }
+    // Check if the connection is successful
+    if ($conn) {
+        echo 'Database connected successfully';
+    } else {
+        echo 'Database connection failed';
 
-    ?>
+    }
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+?>
