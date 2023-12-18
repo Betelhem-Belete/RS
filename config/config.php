@@ -11,7 +11,6 @@ try {
 
     // pass
     define('PASS', '');
-
     $conn = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DBNAME . ";", USER, PASS);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -20,6 +19,7 @@ try {
         echo 'Database connected successfully';
     } else {
         echo 'Database connection failed';
+
     }
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());

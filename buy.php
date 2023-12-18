@@ -1,5 +1,4 @@
 <?php require "header&footer/head_sub_page.php"; ?>
-
 <div class="hero_area">
   <!-- header section strats -->
   <header class="header_section">
@@ -20,6 +19,7 @@
               </li>
             </div>
           </ul>
+
 
           <div class="custom_menu-btn">
             <button onclick="openNav()">

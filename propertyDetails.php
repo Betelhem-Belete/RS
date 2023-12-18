@@ -1,25 +1,25 @@
-<?php require "header&footer/header.php"; ?>
-<div class="hero_area">
-  <!-- header section strats -->
-  <header class="header_section">
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
-        <h2 style="color : white ">Haylu</h2>
-        </a>
-        <div class="navbar-collapse" id="">
-          <ul class="navbar-nav justify-content-between ">
-            <div class="User_option">
-              <li class="">
-                <a class="mr-4" href="./admins/login.php">
-                  Login
-                </a>
-                <a class="" href="./admins/register.php">
-                  Sign up
-                </a>
-              </li>
-            </div>
-          </ul>
+<?php require "header&footer/head_sub_page.php"; ?>
 
+  <div class="hero_area mb-5">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+<h2 style="color : white ">Haylu</h2>           
+          </a>
+          <div class="navbar-collapse" id="">
+            <ul class="navbar-nav justify-content-between ">
+              <div class="User_option">
+                <li class="">
+                  <a class="mr-4" href="./admins/login.php">
+                    Login
+                  </a>
+                  <a class="" href="./admins/register.php">
+                    Sign up
+                  </a>
+                </li>
+              </div>
+            </ul>
           <div class="custom_menu-btn">
             <button onclick="openNav()">
               <span class="s-1">
@@ -30,28 +30,27 @@
               </span>
               <span class="s-3">
 
-              </span>
-            </button>
-          </div>
-          <div id="myNav" class="overlay">
-            <div class="overlay-content">
-              <a href="index.php">HOME</a>
-              <a href="about.php">ABOUT</a>
-              <a href="buy.php">BUY</a>
-              <a href="price.php">PRICING</a>
-              <a href="contact.php">CONTACT US</a>
-              <a href="./admins/index.php">Admin</a>
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.php">HOME</a>
+                <a href="about.php">ABOUT</a>
+                <a href="buy.php">BUY</a>
+                <a href="price.php">PRICING</a>
+                <a href="contact.php">CONTACT US</a>
+                <a href="./admins/index.php">Admin</a>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!-- end header section -->
-</div>
-
-  <div
-      class="site-blocks-cover inner-page-cover overlay"
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+ <div
+      class="site-blocks-cover inner-page-cover overlay mt-5"
       style="background-image: url(images/3.jpg)"
       data-aos="fade"
       data-stellar-background-ratio="0.5"

@@ -6,6 +6,7 @@
       echo "<script>alert('some inputs are empty'); </script>";
     } else{
       $firstName = $_POST['firstName'];
+      $middleName = $_POST['middleName'];
       $lastName = $_POST['lastName'];
       $email = $_POST['email'];
       $password = ($_POST['password']);
@@ -78,6 +79,15 @@
                         class="form-control form-control-user"
                         id="exampleFirstName"
                         placeholder="First Name"
+                      />
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input
+                        type="text"
+                        name="MName"
+                        class="form-control form-control-user"
+                        id="exampleFirstName"
+                        placeholder="Middle Name"
                       />
                     </div>
                     <div class="col-sm-6">

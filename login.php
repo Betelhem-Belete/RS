@@ -1,21 +1,29 @@
+<?php require "config/config.php"; ?>
 <?php
-  if(isset($_POST['submitl'])){
+  if(isset($_POST['submit'])){
 
     if(empty($_POST['email']) OR empty($_POST['password'])){
       echo "<script>alert('some inputs are empty'); </script>";
     } else{
+
       $email = $_POST['email'];
       $password = ($_POST['password']);
- 
 
-      
-      if(strlen($password) < 8){
-        echo "<script>alert('password field is inncorect');</script>";
-      }else{
-        echo "<script>alert('logged in successfully');</script>";
-        
-      
-       header("Location: index.php");
+      //query 
+
+      $login = $conn->query("SELECT * FROM users WHERE email='$email'");
+      $login->execute();
+
+      //fetch
+      $fetch = $login->fetch(PDO::FETCH_ASSOC);
+
+      if($login->rowCount() > 0){
+        echo $login->rowCount();
+        echo "email is valid";
+
+      } else{
+        echo"<script> alert('Email does not exist!')</script>";
+
       }
     }
 }
@@ -32,7 +40,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Login</title>
+    <title>User - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="admins/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -83,8 +91,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="../index.php" name='submitl' class="btn btn-primary btn-user btn-block">
-                                            Login
+                                        <a href="index.php"> 
+                                          <input type='submit' name='submit' class="btn btn-primary btn-user btn-block"
+                                            value='Login' />
                                         </a>
                                         <hr>
                                         <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -99,7 +108,7 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div> -->
                                     <div class="text-center">
-                                        <a class="small" href="register.php">Create an Account!</a>
+                                        <a class="small" href="signup.php">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
