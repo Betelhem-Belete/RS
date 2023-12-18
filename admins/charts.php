@@ -44,33 +44,39 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Employee Tables</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="addEmp.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Add Employee</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="addCategory.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Manage Catagoray</span></a>
-            </li>
-            <li class="nav-item">
+          <a class="nav-link" href="tables.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Employee Tables</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addEmp.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Add Employee</span></a
+          >
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="addCategory.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Manage Catagoray</span></a
+          >
+        
+        </li>
+        <li class="nav-item">
 
           <a class="nav-link" href="addProperty.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Manage Property</span></a
           >
         </li>
-            <li class="nav-item">
+        <li class="nav-item">
 
-                <a class="nav-link" href="scadule.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Assign Scadule</span></a>
-            </li>
+          <a class="nav-link" href="scadule.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Assign Scadule</span></a
+          >
+        </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
