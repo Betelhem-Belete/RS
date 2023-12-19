@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -116,7 +117,9 @@
               class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
             >
             </form>
-            <a href="#" class="btn btn-primary">Loug out</a>
+            <a href="logout.php">
+              <input type="submit" name='logout' class="btn btn-primary" value='Log out'> 
+            </a>
 
             <!-- Topbar Navbar -->
            

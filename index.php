@@ -1,58 +1,5 @@
 <?php require "header&footer/header.php"; ?>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a href='index.php'>
-          <h2>Haylu</h2>
-          </a>
-          <div class="navbar-collapse" id="">
-            <ul class="navbar-nav justify-content-between ">
-              <div class="User_option">
-                <li class="" id="home_nav">
-                  <a class="mr-4" href="login.php">
-                    Login
-                  </a>
-                  <a class="mr-4" href="signup.php">
-                    Sign up
-                  </a>
-                  <a class="" href="./user_Profile/profile.php">
-                    Profile
-                  </a>
-                </li>
-              </div>
-            </ul>
-
-            <div class="custom_menu-btn">
-              <button onclick="openNav()">
-                <span class="s-1">
-
-                </span>
-                <span class="s-2">
-
-                </span>
-                <span class="s-3">
-
-                </span>
-              </button>
-            </div>
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-                <a href="index.php">HOME</a>
-                <a href="about.php">ABOUT</a>
-                <a href="properties.php">PROPERTIES</a>
-                <a href="buy.php">BUY</a>
-                <a href="rent.php">RENT</a>
-                <a href="price.php">PRICING</a>
-                <a href="contact.php">CONTACT US</a>
-                <a href="./admins/index.php">Admin</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+  
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section ">
