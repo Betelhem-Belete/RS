@@ -277,7 +277,6 @@
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $firstname = $_POST['firstname'];
-
                     // Function to validate input using regular expressions
                     function validateInput($input, $pattern)
                     {
