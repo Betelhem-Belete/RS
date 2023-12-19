@@ -290,29 +290,29 @@
                         // If the "employees" table does not exist, create it
                         if (!$tableExists) {
                             $createTableQuery = "CREATE TABLE employees (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                firstname VARCHAR(255),
-                lastname VARCHAR(255),
-                middlename VARCHAR(255),
-                country VARCHAR(255),
-                city VARCHAR(255),
-                qualification VARCHAR(255),
-                salary DECIMAL(10, 2),
-                position VARCHAR(255),
-                email VARCHAR(255),
-                password VARCHAR(255),
-                gender VARCHAR(10),
-                areacode1 VARCHAR(3),
-                phone1 VARCHAR(20),
-                areacode2 VARCHAR(3),
-                phone2 VARCHAR(20),
-                emergencyareacode VARCHAR(3),
-                emergencyphone VARCHAR(20),
-                status VARCHAR(20),
-                age DATE,
-                address VARCHAR(255),
-                address2 VARCHAR(255)
-            )";
+                                id INT AUTO_INCREMENT PRIMARY KEY,
+                                firstname VARCHAR(255),
+                                lastname VARCHAR(255),
+                                middlename VARCHAR(255),
+                                country VARCHAR(255),
+                                city VARCHAR(255),
+                                qualification VARCHAR(255),
+                                salary DECIMAL(10, 2),
+                                position VARCHAR(255),
+                                email VARCHAR(255),
+                                password VARCHAR(255),
+                                gender VARCHAR(10),
+                                areacode1 VARCHAR(3),
+                                phone1 VARCHAR(20),
+                                areacode2 VARCHAR(3),
+                                phone2 VARCHAR(20),
+                                emergencyareacode VARCHAR(3),
+                                emergencyphone VARCHAR(20),
+                                status VARCHAR(20),
+                                age DATE,
+                                address VARCHAR(255),
+                                address2 VARCHAR(255)
+                            )";
                             $conn->exec($createTableQuery);
                         }
 
@@ -444,7 +444,7 @@
                         // Execute the statement
                         $stmt->execute();
 
-                        echo "Employee added successfully!";
+                        // echo "Employee added successfully!";
                         echo "<script>alert('Employee added successfully');</script>";
                     } catch (PDOException $e) {
                         echo "Error Code: " . $e->getCode() . "<br>";

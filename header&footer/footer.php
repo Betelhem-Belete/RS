@@ -43,7 +43,7 @@
               Information
             </h5>
             <p>
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              Haylu Real Estate is a 
             </p>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,6 +143,7 @@
                                       </div>
 
                                     </div>
+
                                   </div>
                                   <ul class="nav nav-tabs">
                                     <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>

@@ -22,13 +22,13 @@
       }
       else{
           //prepare our stament and insert it into database table
-          
           $insert = $conn->prepare("INSERT INTO users (firstName, lastName, email, mypassword) VALUES (:firstName, :lastName, :email, :mypassword)");// prepare allow us 
           $insert->execute([ //excuting parameters using associative array
             'firstName' => $firstName,
             'lastName'=>$lastName,
             'email' => $email,
             'mypassword' => password_hash($mypassword, PASSWORD_DEFAULT),
+            // 'mypassword' => $mypassword,
           ]);
           header("location: login.php");
       }
