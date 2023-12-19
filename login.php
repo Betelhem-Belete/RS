@@ -1,33 +1,45 @@
+
 <?php require "config/config.php"; ?>
 <?php
-  if(isset($_POST['submit'])){
+  session_start();
+  
+  if (isset($_POST['submit'])) {
+      if (empty($_POST['email']) || empty($_POST['mypassword'])) {
+          echo "<script>alert('Some inputs are empty');</script>";
+      } else {
+          $email = $_POST['email'];
+          $password = $_POST['mypassword'];
+  
+          // Query
+          $login = $conn->prepare("SELECT * FROM users WHERE email=:email");
+          $login->bindParam(':email', $email);
+          $login->execute();
+  
+          // Fetch
+          $fetch = $login->fetch(PDO::FETCH_ASSOC);
+  
+          if ($login->rowCount() > 0) {
+              if (password_verify($password, $fetch['mypassword'])) {
+                // echo "<script>alert('logged in');</script>";
 
-    if(empty($_POST['email']) OR empty($_POST['password'])){
-      echo "<script>alert('some inputs are empty'); </script>";
-    } else{
+                  $_SESSION['firstName'] = $fetch['firstName'];
+                  $_SESSION['lastName'] = $fetch['lastName'];
+                  $_SESSION['email'] = $fetch['email'];
+                  $_SESSION['us_id'] = $fetch['us_id'];
 
-      $email = $_POST['email'];
-      $password = ($_POST['password']);
-
-      //query 
-
-      $login = $conn->query("SELECT * FROM users WHERE email='$email'");
-      $login->execute();
-
-      //fetch
-      $fetch = $login->fetch(PDO::FETCH_ASSOC);
-
-      if($login->rowCount() > 0){
-        echo $login->rowCount();
-        echo "email is valid";
-
-      } else{
-        echo"<script> alert('Email does not exist!')</script>";
-
+                  header("location: index.php");
+                  exit; 
+ 
+              } else {
+                  echo "<script>alert('Password is not correct');</script>";
+              }
+          } else {
+              echo "<script>alert('Email does not exist');</script>";
+          }
       }
-    }
-}
-?>
+  }
+  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +93,7 @@
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name='password' class="form-control form-control-user"
+                                            <input type="password" name='mypassword' class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -91,7 +103,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.php"> 
+                                        <a href=""> 
                                           <input type='submit' name='submit' class="btn btn-primary btn-user btn-block"
                                             value='Login' />
                                         </a>
