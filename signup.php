@@ -1,29 +1,40 @@
+<?php require "config/config.php"; ?>
 <?php
-  // require_once('../config/config.php');
+  // require('../config/config.php');
   if(isset($_POST['submit'])){
-    if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['password']) OR empty($_POST['confirmPassword'])){
+    if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['mypassword']) OR empty($_POST['confirm_password'])){
       echo "<script>alert('some inputs are empty'); </script>";
-    } else{
+    }else{
       $firstName = $_POST['firstName'];
       $lastName = $_POST['lastName'];
       $email = $_POST['email'];
-      $password = ($_POST['password']);
-      $confirm_password = ($_POST['confirmPassword']);
-      //RegEx for checking email address
+      $mypassword = ($_POST['mypassword']);
+      $confirm_password = ($_POST['confirm_password']);
       // checking if the password is atleast 8 characters long
-      if(strlen($password) < 8){
-        echo "<script>alert('passwordmust be atleast 8 characters');</script>";
-      }else{
-          //Checking password and confirmation password fields to match each other.
-        if (strcmp($password, $confirm_password) == 0) {
-          header("location: login.php");
-        }else{
-          echo "<script>alert('password and confirm password are not equal');</script>";
-        }
+      if(strlen($mypassword) < 8){
+        echo "<script>alert('password must be atleast 8 characters!');</script>";
       }
-    }
+      else if(preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)){
+        echo "<script>alert('Please insert valid email!');</script>";
+      }
+      else if(strcmp($mypassword, $confirm_password) !== 0) {
+        echo "<script>alert('password and confirm password are not equal!');</script>";
+      }
+      else{
+          //prepare our stament and insert it into database table
+          
+          $insert = $conn->prepare("INSERT INTO users (firstName, lastName, email, mypassword) VALUES (:firstName, :lastName, :email, :mypassword)");// prepare allow us 
+          $insert->execute([ //excuting parameters using associative array
+            'firstName' => $firstName,
+            'lastName'=>$lastName,
+            'email' => $email,
+            'mypassword' => password_hash($mypassword, PASSWORD_DEFAULT),
+          ]);
+          header("location: login.php");
+      }
+    } 
   }
-
+  
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +49,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Admin - Register</title>
+    <title>User - Register</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -62,7 +73,7 @@
           <!-- Nested Row within Card Body -->
           <div class="row">
             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="images/realestatelogin.jpg" alt="" style='width:550px; height: 490px;'>
+                                <img src="images/realestatelogin.jpg" alt="" style='width:500px; height: 490px;'>
             </div>
               <div class="p-5">
                 <div class="text-center">
@@ -102,7 +113,7 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
                         type="password"
-                        name="password"
+                        name="mypassword"
                         class="form-control form-control-user"
                         id="exampleInputPassword"
                         placeholder="Password"
@@ -111,7 +122,7 @@
                     <div class="col-sm-6">
                       <input
                         type="password"
-                        name="confirmPassword"
+                        name="confirm_password"
                         class="form-control form-control-user"
                         id="confirmPassword"
                         placeholder="Confirm Password"
@@ -123,7 +134,7 @@
                       type="submit"
                       name="submit"
                       class="btn btn-primary btn-user btn-block"
-                      value="Register Account "
+                      value="Register Account"
                     />
                   </a>
                   <hr />

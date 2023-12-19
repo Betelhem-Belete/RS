@@ -1,4 +1,4 @@
-<?php require "header&footer/header.php"; ?>
+<?php require "header&footer/head_sub_page.php"; ?>
     <div class="formbold-main-wrapper">
       <!-- Author: FormBold Team -->
       <!-- Learn More: https://formbold.com -->
