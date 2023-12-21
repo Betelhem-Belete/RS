@@ -11,7 +11,7 @@
 -> Each users has their own dynamic pages.
 
 
--> It uses google authentication api.
+-> It uses google api for auth.
 
 
 -> Its main functionality is 
