@@ -1,4 +1,6 @@
-
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +64,7 @@
       <li class="nav-item">
         <a class="nav-link" href="./favorite.php">
           <i class="fas fa-fw fa-table"></i>
-          <span> Favorite</span></a>
+          <span> Favourite</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="./myScadule.php">
@@ -93,7 +95,7 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
           </form>
-          <a href="#" class="btn btn-primary">Loug out</a>
+          <a href="logout.php" class="btn btn-primary">Log out</a>
 
           <!-- Topbar Navbar -->
 
