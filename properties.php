@@ -84,6 +84,32 @@
                   There are many variations of passages of Lorem Ipsum available, but
                 </p>
               </div>
+              <div class="row mb-5">
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Home Type</span
+                  >
+                  <strong class="d-block">Villa</strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Year Built</span
+                  >
+                  <strong class="d-block">2023</strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Price/Sqft</span
+                  >
+                  <strong class="d-block">90,000ETB</strong>
+                </div>
+              </div>
 </a>
         </div>
         <div class="box">
@@ -98,6 +124,32 @@
                 <p>
                   There are many variations of passages of Lorem Ipsum available, but
                 </p>
+              </div>
+              <div class="row mb-5">
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Home Type</span
+                  >
+                  <strong class="d-block">Villa</strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Year Built</span
+                  >
+                  <strong class="d-block">2023</strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Price/Sqft</span
+                  >
+                  <strong class="d-block">90,000ETB</strong>
+                </div>
               </div>
 </a>
         </div>
