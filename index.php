@@ -1,5 +1,73 @@
 <?php require "header&footer/header.php"; ?>
   
+
+<!-- header section strats -->
+<header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a href='index.php'>
+          <h2><strong>Haylu</strong></h2>
+          </a>
+          <div class="navbar-collapse" id="">
+            <ul class="navbar-nav justify-content-between ">
+              <div class="User_option">
+                <li class="" id="home_nav">
+                  <?php if(isset($_SESSION['firstName'])) :  ?>
+                  <li class='dropdown'>
+                    <a class=" dropdown-toggle" href="./user_Profile/profile.php" role='button' id='userDropdown' data-toggle='dropdown' aria-haspopup='true' area-expanded='false'>
+                      <?php echo $_SESSION['firstName']; ?>
+                    </a>
+                    <!-- <div class="dropdown-menu" aria-labelledby="userDropdown">
+                      <a class="dropdown-item" href="./user_Profile/profile.php">Profile</a>
+                    </div> -->
+                    <!-- <ul class='dropdown arrow-top'>
+                      <li><a href='#'>logout</li>
+                    </ul> -->
+                  </li>
+                  <?php else : ?>
+                    <a class="mr-4" href="login.php">
+                      Login
+                    </a>
+                    <a class="mr-4" href="signup.php">
+                      Sign up
+                    </a>
+                  <?php endif; ?>
+                  </li>
+                  
+                </li>
+              </div>
+            </ul>
+            
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.php">HOME</a>
+                <a href="about.php">ABOUT</a>
+                <a href="properties.php">PROPERTIES</a>
+                <a href="buy.php">BUY</a>
+                <a href="rent.php">RENT</a>
+                <a href="price.php">PRICING</a>
+                <a href="contact.php">CONTACT US</a>
+                <a href="./admins/index.php">Admin</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section ">
@@ -76,7 +144,7 @@
             <p>
             Welcome to Haylu Real Estate, where luxury and comfort unite. Our stylish spaces redefine modern living, offering a perfect blend of sophistication and convenience. Experience a lifestyle of elegance and practicality. Welcome home.
             </p>
-            <a href="">
+            <a href="about.php">
               Read More
             </a>
           </div>
@@ -93,10 +161,10 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          House For Sale
+          Properties
         </h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available, but the
+          We have many properties in different categories, Choose based on your interest!!
         </p>
       </div>
       <div class="sale_container">
