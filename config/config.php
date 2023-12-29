@@ -11,17 +11,15 @@ try {
 
     // pass
     define('PASS', '');
-    $conn = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DBNAME . ";", USER, PASS);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $conn = mysqli_connect(HOSTNAME, USER, PASS, DBNAME);
+    
     // Check if the connection is successful
     if ($conn) {
         echo 'Database connected successfully';
     } else {
-        echo 'Database connection failed';
-
+        echo 'Database connection failed: ' . mysqli_connect_error();
     }
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+} catch (Exception $e) {
+    echo "Exception: " . $e->getMessage();
 }
 ?>
