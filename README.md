@@ -1,17 +1,17 @@
-###  Haylu Real Estate
+#  Haylu Real Estate
 
 
--> This is a real estates company web app built using html, css, bootstrap, javascript, php and mysql.
+## This is a real estates company web app built using html, css, bootstrap, javascript, php and mysql.
 
 
--> It has 3 users 
-               - Client
-               - Owner/ Admin and 
-               - Employees
--> Each users has their own dynamic pages.
+## It has 3 users 
+               ### Client
+              ### Owner/ Admin and 
+              ### Employees
+## Each users has their own dynamic pages.
 
 
--> It uses google api for auth.
+## It uses google api for auth.
 
 
 -> Its main functionality is 
