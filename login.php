@@ -4,28 +4,28 @@
   session_start();
   
   if (isset($_POST['submit'])) {
-      if (empty($_POST['email']) || empty($_POST['mypassword'])) {
+      if (empty($_POST['US_EMAIL']) || empty($_POST['US_PASSWORD'])) {
           echo "<script>alert('Some inputs are empty');</script>";
       } else {
-          $email = $_POST['email'];
-          $password = $_POST['mypassword'];
+          $US_EMAIL = $_POST['US_EMAIL'];
+          $US_PASSWORD = $_POST['US_PASSWORD'];
   
           // Query
-          $login = $conn->prepare("SELECT * FROM users WHERE email=:email");
-          $login->bindParam(':email', $email);
+          $login = $conn->prepare("SELECT * FROM users WHERE US_EMAIL=:US_EMAIL");
+          $login->bindParam(':US_EMAIL', $US_EMAIL);
           $login->execute();
   
           // Fetch
           $fetch = $login->fetch(PDO::FETCH_ASSOC);
   
           if ($login->rowCount() > 0) {
-              if (password_verify($password, $fetch['mypassword'])) {
+              if (password_verify($US_PASSWORD, $fetch['US_PASSWORD'])) {
                 // echo "<script>alert('logged in');</script>";
 
-                  $_SESSION['firstName'] = $fetch['firstName'];
-                  $_SESSION['lastName'] = $fetch['lastName'];
-                  $_SESSION['email'] = $fetch['email'];
-                  $_SESSION['us_id'] = $fetch['us_id'];
+                  $_SESSION['US_FNAME'] = $fetch['US_FNAME'];
+                  $_SESSION['US_LNAME'] = $fetch['US_LNAME'];
+                  $_SESSION['US_EMAIL'] = $fetch['US_EMAIL'];
+                  $_SESSION['US_ID'] = $fetch['US_ID'];
 
                   header("location: index.php");
                   exit; 
@@ -88,12 +88,12 @@
                                     </div>
                                     <form action="login.php" method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="email" name='email' class="form-control form-control-user"
+                                            <input type="email" name='US_EMAIL' class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name='mypassword' class="form-control form-control-user"
+                                            <input type="password" name='US_PASSWORD' class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
