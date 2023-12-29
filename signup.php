@@ -2,32 +2,55 @@
 <?php
   // require('../config/config.php');
   if(isset($_POST['submit'])){
-    if(empty($_POST['firstName']) OR empty($_POST['lastName']) OR empty($_POST['email']) OR empty($_POST['mypassword']) OR empty($_POST['confirm_password'])){
+    if(empty($_POST['US_FNAME']) OR empty($_POST['US_LNAME']) OR empty($_POST['US_EMAIL']) OR empty($_POST['US_PASSWORD']) OR empty($_POST['confirm_password'])){
       echo "<script>alert('some inputs are empty'); </script>";
     }else{
-      $firstName = $_POST['firstName'];
-      $lastName = $_POST['lastName'];
-      $email = $_POST['email'];
-      $mypassword = ($_POST['mypassword']);
+      $US_FNAME = $_POST['US_FNAME'];
+      $US_LNAME = $_POST['US_LNAME'];
+      $US_EMAIL = $_POST['US_EMAIL'];
+      $US_PASSWORD = ($_POST['US_PASSWORD']);
       $confirm_password = ($_POST['confirm_password']);
       // checking if the password is atleast 8 characters long
-      if(strlen($mypassword) < 8){
+      if(strlen($US_PASSWORD) < 8){
         echo "<script>alert('password must be atleast 8 characters!');</script>";
       }
-      else if(preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)){
+      else if(preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $US_EMAIL)){
         echo "<script>alert('Please insert valid email!');</script>";
       }
-      else if(strcmp($mypassword, $confirm_password) !== 0) {
+      else if(strcmp($US_PASSWORD, $confirm_password) !== 0) {
         echo "<script>alert('password and confirm password are not equal!');</script>";
       }
       else{
-          //prepare our stament and insert it into database table
-          $insert = $conn->prepare("INSERT INTO users (firstName, lastName, email, mypassword) VALUES (:firstName, :lastName, :email, :mypassword)");// prepare allow us 
+        // $checkTable = $conn->query("SHOW TABLES LIKE 'USERS'");
+        //  $tableExists = $checkTable->rowCount() > 0;
+
+        // // If the "employees" table does not exist, create it
+        // if (!$tableExists) {
+        //     $createTableQuery = "CREATE TABLE USERS (
+        //         US_ID CHAR(10) NOT NULL PRIMARY KEY,
+        //         US_FNAME VARCHAR(25) NOT NULL,
+        //         US_LNAME VARCHAR(25) NOT NULL,
+        //         US_AGE INT,
+        //         US_SEX VARCHAR(6),
+        //         US_CELLPHONE1 CHAR(17),
+        //         US_CELLPHONE2 CHAR(17),
+        //         US_COUNTRY VARCHAR(25),
+        //         US_CITY VARCHAR(25),
+        //         US_SUBCITY VARCHAR(25),
+        //         US_HOUSENUMBER CHAR(10),
+        //         US_EMAIL VARCHAR(50),
+        //         US_PASSWORD VARCHAR(50),
+        //         CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        //       )";
+        //     $conn->execute($createTableQuery);
+        //   }
+        //prepare our stament and insert it into database table
+          $insert = $conn->prepare("INSERT INTO users(US_FNAME, US_LNAME, US_EMAIL, US_PASSWORD) VALUES (:US_FNAME, :US_LNAME, :US_EMAIL, :US_PASSWORD)");// prepare allow us 
           $insert->execute([ //excuting parameters using associative array
-            'firstName' => $firstName,
-            'lastName'=>$lastName,
-            'email' => $email,
-            'mypassword' => password_hash($mypassword, PASSWORD_DEFAULT),
+            'US_FNAME' => $US_FNAME,
+            'US_LNAME'=>$US_LNAME,
+            'US_EMAIL' => $US_EMAIL,
+            'US_PASSWORD' => password_hash($US_PASSWORD, PASSWORD_DEFAULT),
             // 'mypassword' => $mypassword,
           ]);
           header("location: login.php");
@@ -84,7 +107,7 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
                         type="text"
-                        name="firstName"
+                        name="US_FNAME"
                         class="form-control form-control-user"
                         id="exampleFirstName"
                         placeholder="First Name"
@@ -93,7 +116,7 @@
                     <div class="col-sm-6">
                       <input
                         type="text"
-                        name="lastName"
+                        name="US_LNAME"
                         class="form-control form-control-user"
                         id="exampleLastName"
                         placeholder="Last Name"
@@ -103,7 +126,7 @@
                   <div class="form-group">
                     <input
                       type="email"
-                      name="email"
+                      name="US_EMAIL"
                       class="form-control form-control-user"
                       id="exampleInputEmail"
                       placeholder="Email Address"
@@ -113,7 +136,7 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
                         type="password"
-                        name="mypassword"
+                        name="US_PASSWORD"
                         class="form-control form-control-user"
                         id="exampleInputPassword"
                         placeholder="Password"
