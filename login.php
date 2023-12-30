@@ -1,44 +1,54 @@
-
 <?php require "config/config.php"; ?>
 <?php
-  session_start();
-  
-  if (isset($_POST['submit'])) {
-      if (empty($_POST['US_EMAIL']) || empty($_POST['US_PASSWORD'])) {
-          echo "<script>alert('Some inputs are empty');</script>";
-      } else {
-          $US_EMAIL = $_POST['US_EMAIL'];
-          $US_PASSWORD = $_POST['US_PASSWORD'];
-  
-          // Query
-          $login = $conn->prepare("SELECT * FROM users WHERE US_EMAIL=:US_EMAIL");
-          $login->bindParam(':US_EMAIL', $US_EMAIL);
-          $login->execute();
-  
-          // Fetch
-          $fetch = $login->fetch(PDO::FETCH_ASSOC);
-  
-          if ($login->rowCount() > 0) {
-              if (password_verify($US_PASSWORD, $fetch['US_PASSWORD'])) {
-                // echo "<script>alert('logged in');</script>";
+session_start();
 
-                  $_SESSION['US_FNAME'] = $fetch['US_FNAME'];
-                  $_SESSION['US_LNAME'] = $fetch['US_LNAME'];
-                  $_SESSION['US_EMAIL'] = $fetch['US_EMAIL'];
-                  $_SESSION['US_ID'] = $fetch['US_ID'];
+if (isset($_POST['submit'])) {
+    if (empty($_POST['US_EMAIL']) || empty($_POST['US_PASSWORD'])) {
+        echo "<script>alert('Some inputs are empty');</script>";
+    } else {
+        $US_EMAIL = $_POST['US_EMAIL'];
+        $US_PASSWORD = $_POST['US_PASSWORD'];
 
-                  header("location: index.php");
-                  exit; 
- 
-              } else {
-                  echo "<script>alert('Password is not correct');</script>";
-              }
-          } else {
-              echo "<script>alert('Email does not exist');</script>";
-          }
-      }
-  }
-  ?>
+        // Prepare and execute the SQL statement
+        $login = mysqli_prepare($conn, "SELECT * FROM users WHERE US_EMAIL=?");
+        mysqli_stmt_bind_param($login, 's', $US_EMAIL);
+        mysqli_stmt_execute($login);
+
+        // Get the result
+        $result = mysqli_stmt_get_result($login);
+        $fetch = mysqli_fetch_assoc($result);
+
+        if ($fetch) {
+            // Debugging: Print out the hashed password from the database
+            $hashed_password_from_db = $fetch['US_PASSWORD'];
+            echo "Hashed Password from Database: $hashed_password_from_db";
+
+            echo "Password Verify Result: " . (password_verify($US_PASSWORD, $hashed_password_from_db) ? 'true' : 'false');
+
+
+            if (password_verify($US_PASSWORD, $hashed_password_from_db)) {
+                $_SESSION['US_FNAME'] = $fetch['US_FNAME'];
+                $_SESSION['US_LNAME'] = $fetch['US_LNAME'];
+                $_SESSION['US_EMAIL'] = $fetch['US_EMAIL'];
+                $_SESSION['US_ID'] = $fetch['US_ID'];
+
+                header("location: index.php");
+                exit;
+            } else {
+                echo "<script>alert('Password is not correct');</script>";
+            }
+        } else {
+            echo "<script>alert('Email does not exist');</script>";
+        }
+
+        // Close the statement and connection
+        mysqli_stmt_close($login);
+        mysqli_close($conn);
+    }
+}
+?>
+
+
 
 
 <!DOCTYPE html>

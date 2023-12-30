@@ -1,4 +1,6 @@
-<?php require "header&footer/header.php"; ?>
+<?php require "header&footer/header.php"; 
+  // session_start();
+?>
   
 
 <!-- header section strats -->
