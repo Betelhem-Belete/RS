@@ -14,10 +14,10 @@
             <ul class="navbar-nav justify-content-between ">
               <div class="User_option">
                 <li class="" id="home_nav">
-                  <?php if(isset($_SESSION['firstName'])) :  ?>
+                  <?php if(isset($_SESSION['US_FNAME'])) :  ?>
                   <li class='dropdown'>
                     <a class=" dropdown-toggle" href="./user_Profile/profile.php" role='button' id='userDropdown' data-toggle='dropdown' aria-haspopup='true' area-expanded='false'>
-                      <?php echo $_SESSION['firstName']; ?>
+                      <?php echo $_SESSION['US_FNAME']; ?>
                     </a>
                     <!-- <div class="dropdown-menu" aria-labelledby="userDropdown">
                       <a class="dropdown-item" href="./user_Profile/profile.php">Profile</a>
