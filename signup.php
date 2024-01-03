@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
             // If the table does not exist, create it
             if (mysqli_num_rows($tableExistsResult) == 0) {
                 $createTableQuery = "CREATE TABLE USERS (
-                  US_ID CHAR(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  US_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                   US_FNAME VARCHAR(25) NOT NULL,
                   US_LNAME VARCHAR(25) NOT NULL,
                   US_AGE INT,
