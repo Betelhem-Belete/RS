@@ -211,10 +211,10 @@ if (isset($_POST['submit'])) {
                   </a> -->
                 </form>
                 <!-- <hr /> -->
-                <div class="text-center">
+                <!--<div class="text-center">
                   <a class="small" href="forgot-password.php"
                     >Forgot Password?</a>
-                </div>
+                </div>-->
                 <div class="text-center">
                   Already have an account?
                   <a class="small" href="login.php">Login!</a>
