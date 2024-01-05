@@ -40,15 +40,15 @@ mysqli_close($conn);
             <div class="property-entry h-100">
               <a href="property-details.html" class="property-thumbnail">
                 <div class="offer-type-wrap">
-                  <span class="offer-type bg-success"><?php echo $listing->PR_TYPE; ?></span>
+                  <span class="offer-type bg-success"><?php echo $listing['PR_TYPE']; ?></span>
                 </div>
-                <img src="images/<?php echo $listing->PR_PIC; ?>" alt="Image" class="img-fluid">
+                <img src="images/<?php echo $listing['PR_PIC']; ?>" alt="Image" class="img-fluid">
               </a>
               <div class="p-4 property-body">
                 <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                <h2 class="property-title"><a href="property-details.html"><?php echo $listing->PR_NAME; ?></a></h2>
-                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> <?php echo $listing->PR_LOCATION; ?></span>
-                <strong class="property-price text-primary mb-3 d-block" style="font-size: 20px;"><?php echo $listing->PR_PRICE; ?></strong>
+                <h2 class="property-title"><a href="property-details.html"><?php echo $listing['PR_NAME']; ?></a></h2>
+                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> <?php echo $listing['PR_LOCATION']; ?></span>
+                <strong class="property-price text-primary mb-3 d-block" style="font-size: 20px;"><?php echo $listing['PR_PRICE']; ?></strong>
                 <ul class="property-specs-wrap mb-3 mb-lg-0" style="list-style: none; padding: 0; margin: 0">
                   <li class='display-inline' style="display: inline-block; margin-right: 10px;">
                     <span class="property-specs">Beds</span>
