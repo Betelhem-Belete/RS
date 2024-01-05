@@ -4,5 +4,5 @@
   session_unset();
   session_destroy();
 
-  header('location : http://localhost/RealEstate/index.php')
+  header('Location: http://localhost/RealEstate/index.php')
 ?>

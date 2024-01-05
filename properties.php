@@ -1,4 +1,19 @@
-<?php require "header&footer/head_sub_page.php"; ?>
+<?php require "header&footer/head_sub_page.php"; 
+      require "./config/config.php";
+?>
+<?php
+
+    $result = mysqli_query($conn, "SELECT * FROM PROPERTY");
+
+    $PROPERTY = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $PROPERTY[] = (object) $row;
+    }
+
+    // mysqli_free_result($result);
+    // mysqli_close($conn);
+?>
 
   
 
