@@ -184,7 +184,7 @@ if (isset($_POST['submit'])) {
                       />
                     </div>
                   </div>
-                  <a href="login.php">
+                  <a href="index.php">
                     <input
                       type="submit"
                       name="submit"
