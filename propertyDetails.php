@@ -1,31 +1,7 @@
 <?php require "header&footer/head_sub_page.php"; ?>
 
   
- <div
-      class="site-blocks-cover inner-page-cover overlay mt-5"
-      style="background-image: url(images/3.jpg)"
-      data-aos="fade"
-      data-stellar-background-ratio="0.5"
-    >
-      <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-          <div class="col-md-10">
-            <span
-              class="d-inline-block text-white px-3 mb-3 property-offer-type rounded"
-              >Property Details of</span
-            >
-            <h1 class="mb-2">625 S. Berendo St</h1>
-            <p class="mb-5 p-4">
-              <strong class="h2 text-success font-weight-bold"
-                >29,000,500 ETB</strong
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section site-section-sm">
+    <div class="site-section site-section-sm mt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">

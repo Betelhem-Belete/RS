@@ -27,6 +27,27 @@ mysqli_close($conn);
     .property-entry:hover {
         transform: scale(1.05);
     }
+
+    .property-entry {
+    position: relative;
+}
+
+.property-thumbnail {
+    position: relative;
+}
+
+.offer-type-wrap,
+.property-favorite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.property-favorite {
+    top: 10px;
+    left: 10px;
+}
 </style>
 
   <!-- sale section -->
@@ -46,9 +67,9 @@ mysqli_close($conn);
               </a>
               <div class="p-4 property-body">
                 <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                <h2 class="property-title"><a href="property-details.html"><?php echo $listing['PR_NAME']; ?></a></h2>
+                <h2 class="property-title"><a href="propertyDetails.php"><?php echo $listing['PR_NAME']; ?></a></h2>
                 <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> <?php echo $listing['PR_LOCATION']; ?></span>
-                <strong class="property-price text-primary mb-3 d-block" style="font-size: 20px;"><?php echo $listing['PR_PRICE']; ?></strong>
+                <strong class="property-price text-primary mb-3 d-block" style="font-size: 20px;"><?php echo '$' . $listing['PR_PRICE']; ?></strong>
                 <ul class="property-specs-wrap mb-3 mb-lg-0" style="list-style: none; padding: 0; margin: 0">
                   <li class='display-inline' style="display: inline-block; margin-right: 10px;">
                     <span class="property-specs">Beds</span>
@@ -62,7 +83,7 @@ mysqli_close($conn);
                   </li>
                   <li style="display: inline-block; margin-right: 10px;">
                     <span class="property-specs">SQ FT</span>
-                    <span class="property-specs-number">7,000</span>
+                    <span class="property-specs-number"><?php echo $listing['PR_SQFT']; ?></span>
                     
                   </li>
                 </ul>
