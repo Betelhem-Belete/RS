@@ -112,7 +112,7 @@
                     <option value="">Categories</option>
                     <option value="apartments">Apartments</option>
                     <option value="commercial buildings">Commercial Buildings</option>
-                    <option value="villas">Villas</option>
+                    <option value="villa">Villa</option>
                   </select>
             <!-- <input type="text" class="form-control" placeholder="Serach Your Categories "> -->
           </div>
