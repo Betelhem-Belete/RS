@@ -165,6 +165,9 @@
   <!-- end find section -->
 
 
+<?php
+  if(isset($_POST['submitt']))
+?>
   <!-- about section -->
 
   <section class="about_section layout_padding-bottom">
@@ -227,81 +230,6 @@
             </div>
           </a>
         </div>
-        <div class="box">
-        <a href="propertyDetails.php" class=""> 
-            <div class="img-box">
-              <img src="images/s-2.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                apertments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-            </div>
-</a>
-        </div>
-        <div class="box">
-          <a href="propertyDetails.php" class=""> 
-            <div class="img-box">
-              <img src="images/s-3.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                apertments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-            </div>
-</a>
-        </div>
-        <div class="box">
-        <a href="propertyDetails.php" class=""> 
-            <div class="img-box">
-              <img src="images/s-4.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                apertments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-            </div>
-</a>
-        </div>
-        <div class="box">
-          <a href="propertyDetails.php" class=""> 
-            <div class="img-box">
-              <img src="images/s-5.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                apertments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-            </div>
-</a>
-        </div>
-        <div class="box">
-        <a href="propertyDetails.php" class=""> 
-
-          <div class="img-box">
-            <img src="images/s-6.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              apertments house
-            </h6>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but
-            </p>
-          </div>
-</a>
         </div>
       </div>
       <div class="btn-box">
