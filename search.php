@@ -7,7 +7,6 @@
 // Fetch all properties
 $select = mysqli_query($conn, "SELECT * FROM PROPERTY");
 // mysqli_stmt_execute($select);
-// mysqli_stmt_execute($select);
 // $result = mysqli_stmt_get_result($select);
 $property = mysqli_fetch_all($select, MYSQLI_ASSOC);
 
