@@ -158,64 +158,39 @@
                             <!-- Learn More: https://formbold.com -->
                             <div class="formbold-form-wrapper">
                                <!-- <img src="your-image-here.jpg"> -->
-                              <form action="https://formbold.com/s/FORM_ID" method="POST">
+                              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                 <div class="formbold-input-flex">
                                   <div>
-                                    <label for="firstname" class="formbold-form-label"> Category Name </label>
+                                    <label for="Catagoray_name" class="formbold-form-label"> Category Name </label>
                                     <input
                                       type="text"
-                                      name="firstname"
-                                      id="firstname"
+                                      name="Catagoray_name"
+                                      id="Catagoray_name"
                                       placeholder=" Catagoray name"
                                       class="formbold-form-input"
                                     />
                                   </div>
                           
                                   <div>
-                                    <label for="lastname" class="formbold-form-label"> Category Type </label>
+                                    <label for="Catagoray_type" class="formbold-form-label"> Category Type </label>
                                     <input
                                       type="text"
-                                      name="lastname"
-                                      id="lastname"
+                                      name="Catagoray_type"
+                                      id="Catagoray_type"
                                       placeholder="Catagoray type"
                                       class="formbold-form-input"
                                     />
                                   </div>
                                 </div>
                           
-                                <div class="formbold-input-flex">
-                                  <div>
-                                      <label for="email" class="formbold-form-label"> Email </label>
-                                      <input
-                                      type="email"
-                                      name="email"
-                                      id="email"
-                                      placeholder="example@email.com"
-                                      class="formbold-form-input"
-                                      />
-                                  </div>
-                          
-                                  <div>
-                                      <label class="formbold-form-label">Category Type</label>
-                          
-                                      <select class="formbold-form-input" name="occupation" id="occupation">
-                                      <option value="male">Male</option>
-                                      <option value="female">Female</option>
-                                      </select>
-                                  </div>
-                                </div>
                                 <div class="formbold-mb-3">
-                                  <label for="dob" class="formbold-form-label"> Starting day </label>
-                                  <input type="date" name="dob" id="dob" class="formbold-form-input" />
-                                </div>
-                                <div class="formbold-mb-3">
-                                    <label for="message" class="formbold-form-label">
+                                    <label for="Category_Description" class="formbold-form-label">
                                       Category Description
                                     </label>
                                     <textarea
                                       rows="6"
-                                      name="message"
-                                      id="message"
+                                      name=" Category_Description"
+                                      id="Category_Description"
                                       class="formbold-form-input"
                                     ></textarea>
                                   </div>
@@ -235,7 +210,26 @@
                               </form>
                             </div>
                           </div>
-                        
+                          <?php
+                include '../config/config.php';
+                ?>
+                        <?php
+                       
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                          $categoryName = $_POST['Catagoray_name'];
+                          $categoryType  = $_POST['Catagoray_type'];
+                          $categoryDescription  = $_POST['Category_Description'];
+                          $sql = "INSERT INTO category (CAT_NAME, CAT_TYPE, CAT_DESCRIPTION) VALUES ('$categoryName', '$categoryType', '$categoryDescription')";
+if ($conn->query($sql) === TRUE) {
+    echo "Category added successfully.";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+// Close the database connection
+$conn->close();  
+                        } 
+                        ?>
                     </body>
                 </div>
                 <!-- /.container-fluid -->
