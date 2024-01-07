@@ -132,7 +132,7 @@
             <?php
             // Assuming you have already established a database connection
             try {
-              $stmt = $conn->query("SELECT firstname, position, address, age, position, salary, email, phone1 FROM employees");
+              $stmt = $conn->query("SELECT firstname, position, address, age, position, salary, email, phone1 FROM employee");
               $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
               // Handle the error, log it, or display an error message
