@@ -127,109 +127,198 @@
                             <!-- Learn More: https://formbold.com -->
                             <div class="formbold-form-wrapper">
                                <!-- <img src="your-image-here.jpg"> -->
-                              <form action="https://formbold.com/s/FORM_ID" method="POST">
+                              <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                 <div class="formbold-input-flex">
                                   <div>
-                                    <label for="firstname" class="formbold-form-label"> First Name </label>
+                                    <label for="PR_TYPE" class="formbold-form-label"> Property Type </label>
                                     <input
                                       type="text"
-                                      name="firstname"
-                                      id="firstname"
-                                      placeholder=" first name"
+                                      name="PR_TYPE"
+                                      id="PR_TYPE"
+                                      placeholder="property type"
                                       class="formbold-form-input"
                                     />
                                   </div>
                           
                                   <div>
-                                    <label for="lastname" class="formbold-form-label"> Last Name </label>
+                                    <label for="PR_LOCATION" class="formbold-form-label">Catagoray Location </label>
                                     <input
                                       type="text"
-                                      name="lastname"
-                                      id="lastname"
-                                      placeholder=" last name"
+                                      name="PR_LOCATION"
+                                      id="PR_LOCATION"
+                                      placeholder=" catagoray name"
                                       class="formbold-form-input"
                                     />
                                   </div>
                                 </div>
-                          
                                 <div class="formbold-input-flex">
                                   <div>
-                                      <label for="email" class="formbold-form-label"> Email </label>
+                                      <label for="PR_CITY" class="formbold-form-label"> CITY </label>
                                       <input
-                                      type="email"
-                                      name="email"
-                                      id="email"
-                                      placeholder="example@email.com"
+                                      type="text"
+                                      name="PR_CITY"
+                                      id="PR_CITY"
+                                      placeholder="CITY"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                  <div>
+                                      <label for="PR_NAME" class="formbold-form-label"> NAME </label>
+                                      <input
+                                      type="text"
+                                      name="PR_NAME"
+                                      id="PR_NAME"
+                                      placeholder="NAME"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                 
+                                </div>
+                                <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="PR_PRICE" class="formbold-form-label"> price </label>
+                                      <input
+                                      type="text"
+                                      name="PR_PRICE"
+                                      id="PR_PRICE"
+                                      placeholder="price"
                                       class="formbold-form-input"
                                       />
                                   </div>
                           
                                   <div>
-                                      <label class="formbold-form-label">Gender</label>
+                                    <?php
+                                                    include '../config/config.php';
+                                                    $sql = "SELECT CAT_ID, CAT_NAME FROM category";
+                                                    $result = $conn->query($sql);
+                                                    
+                                    
+                                    echo  '<label class="formbold-form-label">select catagoray</label>';
                           
-                                      <select class="formbold-form-input" name="occupation" id="occupation">
-                                      <option value="male">Male</option>
-                                      <option value="female">Female</option>
-                                      </select>
+                                    echo ' <select class="formbold-form-input" name="CAT_ID" id="CAT_ID">';
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '<option value="' . $row["CAT_ID"] . '">' . $row["CAT_NAME"] . '</option>';
+    }
+} else {
+    echo '<option value="">No categories found</option>';
+}
+?>
+</select>
+
                                   </div>
                                 </div>
-                          
-                                <div class="formbold-mb-3 formbold-input-wrapp">
-                                  <label for="phone" class="formbold-form-label"> Phone </label>
+                                <div class="formbold-input-flex">
+                                <div>
+                                      <label for="PR_SQFT" class="formbold-form-label"> SQFT </label>
+                                      <input
+                                      type="text"
+                                      name="PR_SQFT"
+                                      id="PR_SQFT"
+                                      placeholder="FEATURES"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                  <div>
+                                      <label for="PR_FEATURES" class="formbold-form-label"> FEATURES </label>
+                                      <input
+                                      type="text"
+                                      name="PR_FEATURES"
+                                      id="PR_FEATURES"
+                                      placeholder="FEATURES"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
                           
                                   <div>
-                                    <input
-                                      type="text"
-                                      name="areacode"
-                                      id="areacode"
-                                      placeholder="Area code"
-                                      class="formbold-form-input formbold-w-45"
-                                    />
-                          
-                                    <input
-                                      type="text"
-                                      name="phone"
-                                      id="phone"
-                                      placeholder="Phone number"
+                                      <label for="PR_YEAROFBUILD" class="formbold-form-label"> YEAROFBUILD </label>
+                                      <input
+                                      type="date"
+                                      name="PR_YEAROFBUILD"
+                                      id="PR_YEAROFBUILD"
+                                      placeholder="PR_YEAROFBUILD"
                                       class="formbold-form-input"
-                                    />
+                                      />
                                   </div>
                                 </div>
+                                <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="PR_DESCRIPTION" class="formbold-form-label"> DESCRIPTION </label>
+                                      <input
+                                      type="text"
+                                      name="PR_DESCRIPTION"
+                                      id="PR_DESCRIPTION"
+                                      placeholder="DESCRIPTION"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
                           
-                                <div class="formbold-mb-3">
-                                  <label for="age" class="formbold-form-label"> Employee Position: </label>
-                                  <input
-                                    type="text"
-                                    name="age"
-                                    id="age"
-                                    class="formbold-form-input"
-                                  />
+                                  <div>
+                                      <label for="PR_STATUS" class="formbold-form-label"> STATUS </label>
+                                      <input
+                                      type="text"
+                                      name="PR_STATUS"
+                                      id="PR_STATUS"
+                                      placeholder="STATUS"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
                                 </div>
+                                <div class="formbold-input-flex">
+                                  <div>
+                                      <label for="RN_SALON" class="formbold-form-label"> SALON </label>
+                                      <input
+                                      type="text"
+                                      name="RN_SALON"
+                                      id="RN_SALON"
+                                      placeholder="SALON"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
                           
-                                <div class="formbold-mb-3">
-                                  <label for="dob" class="formbold-form-label"> Starting day </label>
-                                  <input type="date" name="dob" id="dob" class="formbold-form-input" />
+                                  <div>
+                                      <label for="RN_BATHROOM" class="formbold-form-label"> BATHROOM </label>
+                                      <input
+                                      type="text"
+                                      name="RN_BATHROOM"
+                                      id="RN_BATHROOM"
+                                      placeholder="BATHROOM"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                  <div>
+                                      <label for="RN_BEDROOM" class="formbold-form-label"> BEDROOM </label>
+                                      <input
+                                      type="text"
+                                      name="RN_BEDROOM"
+                                      id="RN_BEDROOM"
+                                      placeholder="BEDROOM"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                  <div>
+                                      <label for="RN_KITCHEN" class="formbold-form-label"> KITCHEN </label>
+                                      <input
+                                      type="text"
+                                      name="RN_KITCHEN"
+                                      id="RN_KITCHEN"
+                                      placeholder="KITCHEN"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                  <div>
+                                      <label for="RN_SERVICE" class="formbold-form-label"> SERVICE </label>
+                                      <input
+                                      type="text"
+                                      name="RN_SERVICE"
+                                      id="RN_SERVICE"
+                                      placeholder="SERVICE"
+                                      class="formbold-form-input"
+                                      />
+                                  </div>
+                                
                                 </div>
-                          
-                                <div class="formbold-mb-3">
-                                  <label for="address" class="formbold-form-label"> Address </label>
-                          
-                                  <input
-                                    type="text"
-                                    name="address"
-                                    id="address"
-                                    placeholder="Street address"
-                                    class="formbold-form-input formbold-mb-3"
-                                  />
-                                  <input
-                                    type="text"
-                                    name="address2"
-                                    id="address2"
-                                    placeholder="Street address line 2"
-                                    class="formbold-form-input"
-                                  />
-                                </div>
-                          
                                 <div class="formbold-form-file-flex">
                                   <label for="upload" class="formbold-form-label">
                                     Upload Picture
@@ -242,7 +331,7 @@
                                   />
                                 </div>
                           
-                                <button class="formbold-btn">Add Item</button>
+                                <button class="formbold-btn" type="submit">Add Item</button>
                               </form>
                             </div>
                           </div>
@@ -252,7 +341,67 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
+<?php
+                                                    // include '../config/config.php';
 
+                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                      if (!empty($_POST)) {
+                                                        $RN_SALON = $_POST['RN_SALON'];
+                                                        $RN_BEDROOM = $_POST['RN_BEDROOM'];
+                                                        $RN_KITCHEN = $_POST['RN_KITCHEN'];
+                                                        $RN_SERVICE = $_POST['RN_SERVICE'];
+                                                        $RN_BATHROOM = $_POST['RN_BATHROOM'];
+                                                    
+                                                        $pr_pic = $_POST["PR_PIC"];
+                                                        $pr_type = $_POST["PR_TYPE"];
+                                                        $pr_location = $_POST["PR_LOCATION"];
+                                                        $pr_price = $_POST["PR_PRICE"];
+                                                        $pr_description = $_POST["PR_DESCRIPTION"];
+                                                        $pr_sqft = $_POST["PR_SQFT"];
+                                                        $pr_yearofbuild = $_POST["PR_YEAROFBUILD"];
+                                                        $pr_features = $_POST["PR_FEATURES"];
+                                                        $pr_status = $_POST["PR_STATUS"];
+                                                        $rn_id = $_POST["RN_ID"];
+                                                        $cat_id = $_POST["CAT_ID"];
+                                                        $created_at = $_POST["CREATED_AT"];
+                                                        $pr_city = $_POST["PR_CITY"];
+                                                        $pr_name = $_POST["PR_NAME"];
+                                                    
+                                                        $sql = "INSERT INTO property (PR_PIC, PR_TYPE, PR_LOCATION, PR_PRICE, PR_DESCRIPTION, PR_SQFT, PR_YEAROFBUILD, PR_FEATURES, PR_STATUS, RN_ID, CAT_ID, CREATED_AT, PR_CITY, PR_NAME) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                    
+                                                        $stmt = mysqli_prepare($conn, $sql);
+                                                    
+                                                        mysqli_stmt_bind_param($stmt, "sssssssssiisss", $pr_pic, $pr_type, $pr_location, $pr_price, $pr_description, $pr_sqft, $pr_yearofbuild, $pr_features, $pr_status, $rn_id, $cat_id, $created_at, $pr_city, $pr_name);
+                                                    
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                          // Retrieve the last inserted property id
+                                                          $PR_ID  = mysqli_insert_id($conn);
+                                                          echo "Property record inserted successfully";
+                                                          
+                                                          // Assuming you have a foreign key column in the room table named 'PR_ID'
+                                                          $sql = "INSERT INTO room_num (PR_ID, RN_SALON, RN_BEDROOM, RN_KITCHEN, RN_SERVICE, RN_BATHROOM) VALUES (?, ?, ?, ?, ?, ?)";
+                                                    
+                                                          $stmt = mysqli_prepare($conn, $sql);
+                                                          mysqli_stmt_bind_param($stmt, 'isssss', $PR_ID , $RN_SALON, $RN_BEDROOM, $RN_KITCHEN, $RN_SERVICE, $RN_BATHROOM);
+                                                    
+                                                          if (mysqli_stmt_execute($stmt)) {
+                                                            echo "Room record inserted successfully";
+                                                          } else {
+                                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                          }
+                                                    
+                                                          mysqli_stmt_close($stmt);
+                                                        } else {
+                                                          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }
+                                                    
+                                                        mysqli_stmt_close($stmt);
+                                                      } else {
+                                                        echo "Form data is empty. Please submit the form.";
+                                                      }
+                                                    }
+                                                    
+?>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
