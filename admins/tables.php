@@ -129,75 +129,90 @@
           <?php
                 include '../config/config.php';
                 ?>
-            <?php
-            // Assuming you have already established a database connection
-            try {
-              $stmt = $conn->query("SELECT firstname, position, address, age, position, salary, email, phone1 FROM employee");
-              $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-              // Handle the error, log it, or display an error message
-              die("Error fetching data from the database: " . $e->getMessage());
-            }
-            ?>
-            <!-- HTML table structure -->
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Position</th>
-                    <th>Address</th>
-                    <th>Birth Date</th>
-                    <th>Position</th>
-                    <th>Salary</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Position</th>
-                    <th>Address</th>
-                    <th>Birth Date</th>
-                    <th>Position</th>
-                    <th>Salary</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <?php foreach ($employees as $employee): ?>
-                    <tr>
-                      <td>
-                        <?= $employee['firstname']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['position']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['address']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['age']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['position']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['salary']; ?> ETB
-                      </td>
-                      <td>
-                        <?= $employee['email']; ?>
-                      </td>
-                      <td>
-                        <?= $employee['phone1']; ?>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
+        <?php
+  // Assuming you have already established a database connection using mysqli
+
+
+  // Fetch employee data from the database
+  $sql = "SELECT EM_FNAME, EM_LNAME, CONCAT(EM_COUNTRY, ', ', EM_CITY, ', ', EM_SUBCITY, ', ', EM_HOUSENUMBER) AS address, EM_DATEOFBIRTH, EM_POSITION, EM_SALARY, EM_EMAIL, EM_CELLPHONE1 FROM employee";
+  $result = $conn->query($sql);
+
+  // Check if the query was successful
+  if (!$result) {
+    // Handle the error, log it, or display an error message
+    die("Error fetching data from the database: " . $conn->error);
+  }
+
+  // Store the fetched data in an array
+  $employees = [];
+  while ($row = $result->fetch_assoc()) {
+    $employees[] = $row;
+  }
+
+  // Close the database connection
+  $conn->close();
+?>
+
+<!-- HTML table structure -->
+<div class="table-responsive">
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Birth Date</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Birth Date</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <?php foreach ($employees as $employee): ?>
+        <tr>
+          <td>
+            <?= $employee['EM_FNAME']; ?>
+          </td>
+          <td>
+            <?= $employee['EM_LNAME']; ?>
+          </td>
+          <td>
+            <?= $employee['address']; ?>
+          </td>
+          <td>
+            <?= $employee['EM_DATEOFBIRTH']; ?>
+          </td>
+          <td>
+            <?= $employee['EM_POSITION']; ?>
+          </td>
+          <td>
+            <?= $employee['EM_SALARY']; ?> ETB
+          </td>
+          <td>
+            <?= $employee['EM_EMAIL']; ?>
+          </td>
+          <td>
+            <?= $employee['EM_CELLPHONE1']; ?>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
 
           </div>
         </div>
