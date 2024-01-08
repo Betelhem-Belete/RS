@@ -21,9 +21,9 @@
                     <a class=" dropdown-toggle" href="./user_Profile/profile.php" role='button' id='userDropdown' data-toggle='dropdown' aria-haspopup='true' area-expanded='false'>
                       <?php echo $_SESSION['US_FNAME']; ?>
                     </a>
-                    <!-- <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
                       <a class="dropdown-item" href="./user_Profile/profile.php">Profile</a>
-                    </div> -->
+                    </div> 
                     <!-- <ul class='dropdown arrow-top'>
                       <li><a href='#'>logout</li>
                     </ul> -->
@@ -134,31 +134,7 @@
       </form>
     </div>
     <div class="row">
-          <div class="col-md-12 mt-0">
-            <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
-              <div class="mr-auto">
-                <a href="index.html" class="icon-view view-module active"><span class="icon-view_module"></span></a>
-                <a href="view-list.html" class="icon-view view-list"><span class="icon-view_list"></span></a>
-              </div>
-              <div class="ml-auto d-flex align-items-center">
-                <div>
-                  <a href="#" class="view-list px-3 border-right active">All</a>
-                  <a href="#" class="view-list px-3 border-right">Rent</a>
-                  <a href="#" class="view-list px-3">Sale</a>
-                </div>
-
-
-                <div class="select-wrap">
-                  <span class="icon icon-arrow_drop_down"></span>
-                  <select class="form-control form-control-sm d-block rounded-0">
-                    <option value="">Sort by</option>
-                    <option value="">Price Ascending</option>
-                    <option value="">Price Descending</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
+  
         </div>
   </section>
 
@@ -208,28 +184,49 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          Properties
+        Categories
         </h2>
         <p>
           We have many properties in different categories, Choose based on your interest!!
         </p>
       </div>
       <div class="sale_container">
-        <div class="box">
-          <a href="propertyDetails.php" class=""> 
-            <div class="img-box">
-              <img src="images/s-1.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                apertments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-            </div>
-          </a>
+      <?php
+// Connect to your database
+include './config/config.php';
+
+
+// Fetch data from the category table
+$sql = "SELECT CAT_ID, CAT_NAME, CAT_TYPE, CAT_DESCRIPTION FROM category";
+$result = mysqli_query($conn, $sql);
+
+// Display the fetched data within the HTML structure
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+?>
+        <div class="box m-1 p-3"  style="box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);">
+            <a href="catDetails.php?cat_id=<?php echo $row['CAT_ID']; ?>" class="">
+                <div class="img-box">
+                    <img src="images/s-1.jpg" alt=""> </div>
+                <div class="detail-box">
+                    <h6><?php echo $row['CAT_NAME']; ?></h6>
+                    <p><?php echo $row['CAT_DESCRIPTION']; ?></p> 
+                    <a href="catDetails.php?cat_id=<?php echo $row['CAT_ID']; ?>" class="btn btn-primary">See more</a>
+
+                </div>
+            </a>
         </div>
+<?php
+    }
+} else {
+    echo "No categories found.";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+        
         </div>
       </div>
       <div class="btn-box">
