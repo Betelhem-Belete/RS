@@ -343,7 +343,6 @@ if ($result->num_rows > 0) {
             <!-- End of Main Content -->
 <?php
                                                     // include '../config/config.php';
-
                                                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                       if (!empty($_POST)) {
                                                         $RN_SALON = $_POST['RN_SALON'];

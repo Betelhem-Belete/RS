@@ -1,5 +1,23 @@
 <?php require "header&footer/head_sub_page.php"; ?>
+<?php
+// Connect to database
+include './config/config.php';
 
+// Get property ID from URL or set a default
+$pr_id = isset($_GET['pr_id']) ? $_GET['pr_id'] : 1; // Replace 1 with a default ID if needed
+
+// Fetch property data and join rooms
+$sql = "SELECT 
+            property.PR_ID, property.PR_PRICE, property.PR_PIC, property.PR_YEAROFBUILD, property.PR_DESCRIPTION, property.PR_FEATURES, property.PR_SQFT, property.PR_TYPE, property.PR_STATUS, property.PR_LOCATION, property.PR_CITY,
+            room_num.RN_BEDROOM, room_num.RN_KITCHEN, room_num.RN_BATHROOM
+        FROM property
+        LEFT JOIN room_num ON property.PR_ID = room_num.PR_ID
+        WHERE property.PR_ID = $pr_id";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $propertyData = mysqli_fetch_assoc($result);
+?>
   
     <div class="site-section site-section-sm mt-5">
       <div class="container">
@@ -7,20 +25,7 @@
           <div class="col-lg-8">
             <div>
               <div class="slide-one-item home-slider owl-carousel">
-                <!-- <div>
-                  <img
-                    src="images/3.jpg"
-                    alt="Image"
-                    class="img-fluid"
-                  />
-                </div>
-                <div>
-                  <img
-                    src="images/3.jpg"
-                    alt="Image"
-                    class="img-fluid"
-                  />
-                </div> -->
+            
                 <div>
                   <img
                     src="images/3.jpg"
@@ -35,21 +40,25 @@
             >
               <div class="row mb-5 mt-2">
                 <div class="col-md-6">
-                  <strong class="text-success h1 mb-3 p-3 ">29,000,500ETB</strong>
+                  <strong class="text-success h1 mb-3 p-3 "><?php echo number_format($propertyData['PR_PRICE']); ?> ETB</strong>
                 </div>
                 <div class="col-md-6">
                   <ul class="list-unstyled property-specs-wrap mb-3 mb-lg-0 float-lg-right">
                     <li class="list-inline-item d-line-block mr-3">
                       <span class="property-specs beds">Beds</span><br>
-                      <span class="property-specs-number number">2 <sup>+</sup></span>
+                      <span class="property-specs-number number"><strong><?php echo $propertyData['RN_BEDROOM']; ?></strong></span>
+                    </li>
+                    <li class="list-inline-item d-line-block mr-3">
+                      <span class="property-specs beds">kitchen</span><br>
+                      <span class="property-specs-number number"><strong><?php echo $propertyData['RN_KITCHEN']; ?></strong></span>
                     </li>
                     <li class="list-inline-item d-line-block mr-3">
                       <span class="property-specs baths">Baths</span><br>
-                      <span class="property-specs-number number">2</span>
+                      <span class="property-specs-number number"><strong><?php echo $propertyData['RN_BATHROOM']; ?></strong></span>
                     </li>
                     <li class="list-inline-item d-line-block mr-3">
                       <span class="property-specs sqft">SQ FT</span><br>
-                      <span class="property-specs-number number">250</span>
+                      <span class="property-specs-number number"><strong><?php echo $propertyData['PR_SQFT']; ?></strong></span>
                     </li>
                   </ul>
                 </div>
@@ -61,7 +70,7 @@
                   <span class="d-inline-block text-black mb-0 caption-text"
                     >Home Type</span
                   >
-                  <strong class="d-block">Villa</strong>
+                  <strong class="d-block"><?php echo$propertyData['PR_TYPE']; ?></strong>
                 </div>
                 <div
                   class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
@@ -69,37 +78,55 @@
                   <span class="d-inline-block text-black mb-0 caption-text"
                     >Year Built</span
                   >
-                  <strong class="d-block">2023</strong>
+                  <strong class="d-block"><?php echo$propertyData['PR_YEAROFBUILD']; ?></strong>
                 </div>
                 <div
                   class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
                 >
                   <span class="d-inline-block text-black mb-0 caption-text"
-                    >Price/Sqft</span
+                    >sqr meter</span
                   >
-                  <strong class="d-block">90,000ETB</strong>
+                  <strong class="d-block"><?php echo$propertyData['PR_SQFT']; ?></strong>
                 </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >Status</span
+                  >
+                  <strong class="d-block"><?php echo$propertyData['PR_STATUS']; ?></strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >location</span
+                  >
+                  <strong class="d-block"><?php echo$propertyData['PR_LOCATION']; ?></strong>
+                </div>
+                <div
+                  class="col-md-6 col-lg-4 text-center border-bottom border-top py-3"
+                >
+                  <span class="d-inline-block text-black mb-0 caption-text"
+                    >city</span
+                  >
+                  <strong class="d-block"><?php echo$propertyData['PR_CITY']; ?></strong>
+                </div>
+               
+              
               </div>
               <h2 class="h4 text-black px-3">More Info</h2>
               <p class="px-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Assumenda aperiam perferendis deleniti vitae asperiores
-                accusamus tempora facilis sapiente, quas! Quos asperiores alias
-                fugiat sunt tempora molestias quo deserunt similique sequi.
+              <?php echo$propertyData['PR_DESCRIPTION']; ?>
               </p>
               <p class="px-3">
-                Nisi voluptatum error ipsum repudiandae, autem deleniti, velit
-                dolorem enim quaerat rerum incidunt sed, qui ducimus! Tempora
-                architecto non, eligendi vitae dolorem laudantium dolore
-                blanditiis assumenda in eos hic unde.
+              <?php echo $propertyData['PR_FEATURES']; ?>
               </p>
 
 <!-- Gallery -->
 
               <div class="row no-gutters mt-5 ">
-                <div class="col-12">
-                  <h2 class="h4 text-black mb-3 p-3">Gallery</h2>
-                </div>
+                
                 <div class="col-sm-6 col-md-4 col-lg-3 p-1">
                   <a href="images/3.jpg" class="image-popup gal-item"
                     ><img src="images/3.jpg" alt="Image" class="img-fluid"
@@ -140,27 +167,7 @@
                     ><img src="images/3.jpg" alt="Image" class="img-fluid"
                   /></a>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 p-1">
-                  <a href="images/3.jpg" class="image-popup gal-item"
-                    ><img src="images/3.jpg" alt="Image" class="img-fluid"
-                  /></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 p-1">
-                  <a href="images/3.jpg" class="image-popup gal-item"
-                    ><img src="images/3.jpg" alt="Image" class="img-fluid"
-                  /></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 p-1">
-                  <a href="images/3.jpg" class="image-popup gal-item"
-                    ><img src="images/3.jpg" alt="Image" class="img-fluid"
-                  /></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 p-1">
-                  <a href="images/3.jpg" class="image-popup gal-item"
-                    ><img src="images/3.jpg" alt="Image" class="img-fluid"
-                  /></a>
-                </div>
-              </div>
+              </div> 
             </div>
           </div>
           <div class="col-lg-4">
@@ -214,5 +221,11 @@
         </div>
       </div>
     </div>
+    <?php
+} else {
+    echo "Property not found.";
+}
 
+mysqli_close($conn);
+?>
 <?php require "header&footer/footer.php"; ?>
