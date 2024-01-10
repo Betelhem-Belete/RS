@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>alert('Appointment request sent successfully!');</script>";
-        // echo "<script>window.location.href=http://localhost/RealEstate/propertyDetails.php";
+        echo "<script>window.location.href=http://localhost/RealEstate/index.php";
     } else {
         echo "Error: " . mysqli_error($conn);
     }

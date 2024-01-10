@@ -179,15 +179,15 @@ mysqli_close($conn);
                               <div class="card-body">
                                 <div class="e-profile">
                                   <div class="row">
-                                    <div class="col-12 col-sm-auto mb-3">
+                                    <!-- <div class="col-12 col-sm-auto mb-3">
                                       <div class="mx-auto" style="width: 140px;">
                                         <div class="d-flex justify-content-center align-items-center rounded"
                                           style="height: 140px; background-color: rgb(233, 236, 239);">
                                           <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                    </div> -->
+                                    <!-- <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                                       <div class="text-center text-sm-left mb-2 mb-sm-0">
                                         <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Beti </h4>
                                         <div class="mt-2">
@@ -198,7 +198,7 @@ mysqli_close($conn);
                                         </div>
                                       </div>
 
-                                    </div>
+                                    </div> -->
 
                                   </div>
                                   <ul class="nav nav-tabs">
@@ -250,7 +250,7 @@ mysqli_close($conn);
                                           <div>
                                             <label for="password" class="formbold-form-label">Password</label>
                                             <input type="password" name="US_PASSWORD" id="password"
-                                              placeholder="Enter Password"value="<?php echo $existing_user_data['US_PASSWORD']; ?>" class="formbold-form-input" />
+                                              placeholder="Enter Password"value="" class="formbold-form-input" />
                                             <p id=""></p>
                                           </div>
                                           
