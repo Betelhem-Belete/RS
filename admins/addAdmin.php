@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         $houseNumber = $_POST['AD_HOUSENUMBER'];
 
         // Prepare the SQL statement
-        $stmt = mysqli_prepare($conn, "INSERT INTO admin(AD_FNAME, AD_LNAME, AD_COUNTRY, AD_CITY, AD_SUBCITY, AD_QULAIFICATION, AD_SALARY, AD_POSITION, AD_EMAIL, AD_PASSWORD, AD_SEX, AD_CELLPHONE1, AD_CELLPHONE2, AD_EMERGENCY_CONTACT, AD_STATUS, AD_DATEOFBIRTH, AD_HOUSENUMBER) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = mysqli_prepare($conn, "INSERT INTO admins(AD_FNAME, AD_LNAME, AD_COUNTRY, AD_CITY, AD_SUBCITY, AD_QULAIFICATION, AD_SALARY, AD_POSITION, AD_EMAIL, AD_PASSWORD, AD_SEX, AD_CELLPHONE1, AD_CELLPHONE2, AD_EMERGENCY_CONTACT, AD_STATUS, AD_DATEOFBIRTH, AD_HOUSENUMBER) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // Check if the prepare statement was successful
         if ($stmt) {

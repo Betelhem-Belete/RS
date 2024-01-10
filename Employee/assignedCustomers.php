@@ -95,72 +95,118 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <body>
-            <div class="formbold-main-wrapper">
-              <!-- Author: FormBold Team -->
-              <!-- Learn More: https://formbold.com -->
-              <div class="formbold-form-wrapper">
-                <!-- <img src="your-image-here.jpg"> -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                      Scadule Table
-                    </h6>
-                  </div>
-                  <?php $sql = "SELECT users.US_FNAME, users.US_LNAME, users.US_CELLPHONE1, assign_appointment.AP_DATE, assign_appointment.AP_TIME
-        FROM assign_appointment
-        JOIN users ON assign_appointment.US_ID = users.US_ID";
+        <?php
+include '../config/config.php';
 
-                  $result = $conn->query($sql);
+// Assuming US_ID = 3, AP_ID = 2, EM_ID = 1
+$ret = "SELECT * FROM assign_appointment";
+$res = $conn->query($ret);
+$rows = $res->fetch_assoc();
 
-                  ?>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+echo $us_id = $rows['US_ID'];
+echo $ap_id = $rows['AP_ID'];
+echo $em_id = $rows['EM_ID'];
+
+$sql = "SELECT users.US_FNAME, users.US_LNAME, users.US_CELLPHONE1, appointment.AP_DATE, appointment.AP_TIME
+        FROM appointment
+        JOIN users ON assign_appointment.US_ID = users.US_ID
+        WHERE appointment.US_ID = $us_id AND appointment.AP_ID = $ap_id AND appointment.EM_ID = $em_id";
+
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Table</title>
+</head>
+<body>
+
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    Schedule Table
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                          <tr>
-                            <th>first Name</th>
-                            <th>last name</th>
-                            <th>phone</th>
-                            <th>date</th>
-                            <th>time </th>
-                          </tr>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
                         </thead>
                         <tfoot>
-                          <tr>
-                            <th>first Name</th>
-                            <th>last name</th>
-                            <th>phone</th>
-                            <th>date</th>
-                            <th>time </th>
-                          </tr>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
                         </tfoot>
                         <tbody>
-                          <?php
-                          // Fetch and display data
-                          if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                              echo "<tr>";
-                              echo "<td>" . $row['first_name'] . "</td>";
-                              echo "<td>" . $row['last_name'] . "</td>";
-                              echo "<td>" . $row['phone'] . "</td>";
-                              echo "<td>" . $row['date'] . "</td>";
-                              echo "<td>" . $row['time'] . "</td>";
-                              echo "</tr>";
+                        <?php
+                        // Fetch and display data
+                        if ($result) {
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['US_FNAME'] . "</td>";
+                                    echo "<td>" . $row['US_LNAME'] . "</td>";
+                                    echo "<td>" . $row['US_CELLPHONE1'] . "</td>";
+                                    echo "<td>" . $row['AP_DATE'] . "</td>";
+                                    echo "<td>" . $row['AP_TIME'] . "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>No records found</td></tr>";
                             }
-                          } else {
-                            echo "<tr><td colspan='5'>No records found</td></tr>";
-                          }
-                          ?>
+                        } else {
+                            echo "<tr><td colspan='5'>Query failed: " . $conn->error . "</td></tr>";
+                        }
+                        ?>
                         </tbody>
-                      </table>
-                    </div>
-                  </div>
-
+                    </table>
                 </div>
-              </div>
             </div>
-          </body>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
         </div>
         <!-- /.container-fluid -->
       </div>
