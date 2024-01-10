@@ -279,42 +279,66 @@
                 include '../config/config.php';
                 ?>
                 <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-                    // ... your other code ...
-                    $firstName = $_POST['EM_FNAME'];
-                    $lastName = $_POST['EM_LNAME'];
-                    $country = $_POST['EM_COUNTRY'];
-                    $city = $_POST['EM_CITY'];
-                    $subCity = $_POST['EM_SUBCITY'];
-                    $qualification = $_POST['EM_QULAIFICATION'];
-                    $salary = $_POST['EM_SALARY'];
-                    $position = $_POST['EM_POSITION'];
-                    $email = $_POST['EM_EMAIL'];
-                    $password = password_hash($_POST['EM_PASSWORD'], PASSWORD_DEFAULT);
-                    $gender = $_POST['EM_SEX'];
-                    $phone1 = $_POST['EM_CELLPHONE1'];
-                    $phone2 = $_POST['EM_CELLPHONE2'];
-                    $emergencyContact = $_POST['EM_EMERGENCY_CONTACT'];
-                    $status = $_POST['EM_STATUS'];
-                    $dateOfBirth = $_POST['EM_DATEOFBIRTH'];
-                    $address = $_POST['EM_HOUSENUMBER'];
+try {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
-                    $stmt = $conn->prepare("INSERT INTO employee (EM_FNAME, EM_LNAME, EM_DATEOFBIRTH, EM_SEX, EM_CELLPHONE1, EM_CELLPHONE2, EM_COUNTRY, EM_CITY, EM_SUBCITY, EM_HOUSENUMBER, EM_EMAIL, EM_PASSWORD, EM_POSITION, EM_SALARY, EM_PICTURE, EM_STATUS, EM_QULAIFICATION, EM_EMERGENCY_CONTACT) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $firstName = $_POST['EM_FNAME'];
+        $lastName = $_POST['EM_LNAME'];
+        $country = $_POST['EM_COUNTRY'];
+        $city = $_POST['EM_CITY'];
+        $subCity = $_POST['EM_SUBCITY'];
+        $qualification = $_POST['EM_QULAIFICATION'];
+        $salary = $_POST['EM_SALARY'];
+        $position = $_POST['EM_POSITION'];
+        $email = $_POST['EM_EMAIL'];
+        $password = password_hash($_POST['EM_PASSWORD'], PASSWORD_DEFAULT);
+        $gender = $_POST['EM_SEX'];
+        $phone1 = $_POST['EM_CELLPHONE1'];
+        $phone2 = $_POST['EM_CELLPHONE2'];
+        $emergencyContact = $_POST['EM_EMERGENCY_CONTACT'];
+        $status = $_POST['EM_STATUS'];
+        $dateOfBirth = $_POST['EM_DATEOFBIRTH'];
+        $address = $_POST['EM_HOUSENUMBER'];
 
-                    $stmt->bind_param('ssssssssssssssssss',  $firstName, $lastName, $dateOfBirth, $gender, $phone1, $phone2, $country, $city, $subCity, $address, $email, $password, $position, $salary, $emptyValue, $status, $qualification, $emergencyContact);
+        // Validate phone numbers using regular expressions
+        $phoneRegex = '/^\+[0-9]{3}\-[0-9]{3}\-[0-9]{3}\-[0-9]{4}$/';
 
-                    $stmt->execute();
+        if (!preg_match($phoneRegex, $phone1) || !preg_match($phoneRegex, $phone2)) {
+            echo "<script>alert('Invalid phone number format');</script>";
+            exit; // Stop execution if phone numbers are invalid
+        }
 
-                    if ($stmt->affected_rows > 0) {
-                        echo "<alert>Data inserted successfully!</alert>";
-                    } else {
-                        echo "<alert>Error inserting data: </alert>" . $stmt->error;
-                    }
+        $stmt = $conn->prepare("INSERT INTO employee (EM_FNAME, EM_LNAME, EM_DATEOFBIRTH, EM_SEX, EM_CELLPHONE1, EM_CELLPHONE2, EM_COUNTRY, EM_CITY, EM_SUBCITY, EM_HOUSENUMBER, EM_EMAIL, EM_PASSWORD, EM_POSITION, EM_SALARY, EM_PICTURE, EM_STATUS, EM_QULAIFICATION, EM_EMERGENCY_CONTACT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-                    $stmt->close();
-                    $conn->close();
-                }
-                ?>
+        // Check if the prepare statement was successful
+        if ($stmt) {
+            // Bind parameters
+            $stmt->bind_param('ssssssssssssssssss', $firstName, $lastName, $dateOfBirth, $gender, $phone1, $phone2, $country, $city, $subCity, $address, $email, $password, $position, $salary, $emptyValue, $status, $qualification, $emergencyContact);
+
+            // Execute the statement
+            $stmt->execute();
+
+            // Check for successful insertion
+            if ($stmt->affected_rows > 0) {
+                echo "<script>alert('Data inserted successfully!');</script>";
+            } else {
+                echo "<script>alert('Error inserting data');</script>";
+            }
+
+            // Close the statement
+            $stmt->close();
+        } else {
+            echo "Error in preparing statement: " . $conn->error;
+        }
+
+        // Close the connection
+        $conn->close();
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
 
             </div>
             <!-- /.container-fluid -->

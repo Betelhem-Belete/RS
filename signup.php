@@ -20,14 +20,7 @@ if (isset($_POST['submit'])) {
         } else if (strcmp($US_PASSWORD, $confirm_password) !== 0) {
             echo "<script>alert('Password and confirm password are not equal!');</script>";
         } else {
-            // Create a connection to the database
-            $conn = mysqli_connect('localhost', 'root', '', 'haylu');
-
-            // Check the connection
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-
+            
             // Check if the table 'USERS' exists
             $tableExistsQuery = "SHOW TABLES LIKE 'USERS'";
             $tableExistsResult = mysqli_query($conn, $tableExistsQuery);

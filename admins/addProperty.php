@@ -280,35 +280,34 @@
 include '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-  $RN_SALON = $_POST['RN_SALON'];
-  $RN_BEDROOM = $_POST['RN_BEDROOM'];
-  $RN_KITCHEN = $_POST['RN_KITCHEN'];
-  $RN_SERVICE = $_POST['RN_SERVICE'];
-  $RN_BATHROOM = $_POST['RN_BATHROOM'];
+    $RN_SALON = $_POST['RN_SALON'];
+    $RN_BEDROOM = $_POST['RN_BEDROOM'];
+    $RN_KITCHEN = $_POST['RN_KITCHEN'];
+    $RN_SERVICE = $_POST['RN_SERVICE'];
+    $RN_BATHROOM = $_POST['RN_BATHROOM'];
 
-  $pr_type = $_POST["PR_TYPE"];
-  $pr_location = $_POST["PR_LOCATION"];
-  $pr_price = $_POST["PR_PRICE"];
-  $pr_description = $_POST["PR_DESCRIPTION"];
-  $pr_sqft = $_POST["PR_SQFT"];
-  $pr_yearofbuild = $_POST["PR_YEAROFBUILD"];
-  $pr_features = $_POST["PR_FEATURES"];
-  $pr_status = $_POST["PR_STATUS"];
-  $cat_id = $_POST["CAT_ID"];
-  $pr_city = $_POST["PR_CITY"];
-  $pr_name = $_POST["PR_NAME"];
+    $pr_type = $_POST["PR_TYPE"];
+    $pr_location = $_POST["PR_LOCATION"];
+    $pr_price = $_POST["PR_PRICE"];
+    $pr_description = $_POST["PR_DESCRIPTION"];
+    $pr_sqft = $_POST["PR_SQFT"];
+    $pr_yearofbuild = $_POST["PR_YEAROFBUILD"];
+    $pr_features = $_POST["PR_FEATURES"];
+    $pr_status = $_POST["PR_STATUS"];
+    $cat_id = $_POST["CAT_ID"];
+    $pr_city = $_POST["PR_CITY"];
+    $pr_name = $_POST["PR_NAME"];
 
     try {
         if ($_FILES["upload"]["error"] == 4) {
-            echo "<script> alert('Image Does Not Exist'); </script>";
+            echo "<script>alert('Image Does Not Exist');</script>";
         } else {
             $fileName = $_FILES["upload"]["name"];
             $fileSize = $_FILES["upload"]["size"];
             $tmpName = $_FILES["upload"]["tmp_name"];
 
             $validImageExtension = ['jpg', 'jpeg', 'png'];
-            $imageExtension = explode('.', $fileName);
-            $imageExtension = strtolower(end($imageExtension));
+            $imageExtension = pathinfo($fileName, PATHINFO_EXTENSION);
 
             if (!in_array($imageExtension, $validImageExtension)) {
                 echo "<script>alert('Invalid Image Extension');</script>";
@@ -326,29 +325,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 $destination = $uploadDirectory . $newImageName;
 
                 if (move_uploaded_file($tmpName, $destination)) {
-                  $query = "INSERT INTO property (PR_PIC, PR_TYPE, PR_LOCATION, PR_PRICE, PR_DESCRIPTION, PR_SQFT, PR_YEAROFBUILD, PR_FEATURES, PR_STATUS, CAT_ID, PR_CITY, PR_NAME) VALUES ('$newImageName', '$pr_type', '$pr_location', '$pr_price', '$pr_description', '$pr_sqft', '$pr_yearofbuild', '$pr_features', '$pr_status', '$cat_id', '$pr_city', '$pr_name')";
-                    mysqli_query($conn, $query);
+                    // Use prepared statement for property insertion
+                    $query = "INSERT INTO property (PR_PIC, PR_TYPE, PR_LOCATION, PR_PRICE, PR_DESCRIPTION, PR_SQFT, PR_YEAROFBUILD, PR_FEATURES, PR_STATUS, CAT_ID, PR_CITY, PR_NAME) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    $stmt = mysqli_prepare($conn, $query);
+                    mysqli_stmt_bind_param($stmt, 'ssssssssssss', $newImageName, $pr_type, $pr_location, $pr_price, $pr_description, $pr_sqft, $pr_yearofbuild, $pr_features, $pr_status, $cat_id, $pr_city, $pr_name);
+                    mysqli_stmt_execute($stmt);
+
                     $PR_ID = mysqli_insert_id($conn);
 
+                    // Use prepared statement for room number insertion
                     $sql = "INSERT INTO room_num (PR_ID, RN_SALON, RN_BEDROOM, RN_KITCHEN, RN_SERVICE, RN_BATHROOM) VALUES (?, ?, ?, ?, ?, ?)";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, 'isssss', $PR_ID, $RN_SALON, $RN_BEDROOM, $RN_KITCHEN, $RN_SERVICE, $RN_BATHROOM);
                     mysqli_stmt_execute($stmt);
 
                     echo "<script>alert('Property record inserted successfully. PR_ID: " . $PR_ID . "');</script>";
-                  } else {
+                } else {
                     echo "<script>alert('Error moving file to destination');</script>";
                 }
             }
         }
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
+    } finally {
+        // Close database connection
+        mysqli_close($conn);
     }
 }
-
-// Close database connection
-mysqli_close($conn);
 ?>
+
   </div>
   <!-- End of Content Wrapper -->
 

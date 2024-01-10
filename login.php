@@ -2,8 +2,6 @@
 require "config/config.php";
 session_start();
 
-// ...
-
 function loginUser($conn, $table, $email, $password, $fnameField, $lnameField, $emailField, $idField, $roleField, $PASS)
 {
     $login = mysqli_prepare($conn, "SELECT * FROM $table WHERE $emailField=?");
@@ -79,6 +77,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

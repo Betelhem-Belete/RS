@@ -171,18 +171,19 @@
     </div>
   </div>
 
-<?php
+  <?php
 // Include database configuration file
 include '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $categoryName = $_POST['Catagoray_name'];
-    $categoryType = $_POST['Catagoray_type'];
-    $categoryDescription = $_POST['Category_Description'];
+    // Sanitize inputs to prevent SQL injection
+    $categoryName = mysqli_real_escape_string($conn, $_POST['Catagoray_name']);
+    $categoryType = mysqli_real_escape_string($conn, $_POST['Catagoray_type']);
+    $categoryDescription = mysqli_real_escape_string($conn, $_POST['Category_Description']);
 
     try {
         if ($_FILES["upload"]["error"] == 4) {
-            echo "<script> alert('Image Does Not Exist'); </script>";
+            echo "<script>alert('Image Does Not Exist');</script>";
         } else {
             $fileName = $_FILES["upload"]["name"];
             $fileSize = $_FILES["upload"]["size"];
@@ -208,9 +209,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 $destination = $uploadDirectory . $newImageName;
 
                 if (move_uploaded_file($tmpName, $destination)) {
-                    $query = "INSERT INTO category (CAT_NAME, CAT_TYPE, CAT_DESCRIPTION, CAT_PIC) VALUES ('$categoryName', '$categoryType', '$categoryDescription', '$newImageName')";
-                    mysqli_query($conn, $query);
-                    echo "<script>alert('Successfully Added');</script>";
+                    // Prepare the SQL statement with placeholders
+                    $query = "INSERT INTO category (CAT_NAME, CAT_TYPE, CAT_DESCRIPTION, CAT_PIC) VALUES (?, ?, ?, ?)";
+                    $stmt = mysqli_prepare($conn, $query);
+
+                    // Bind parameters
+                    mysqli_stmt_bind_param($stmt, 'ssss', $categoryName, $categoryType, $categoryDescription, $newImageName);
+
+                    // Execute the statement
+                    mysqli_stmt_execute($stmt);
+
+                    // Check for successful insertion
+                    if (mysqli_affected_rows($conn) > 0) {
+                        echo "<script>alert('Successfully Added');</script>";
+                    } else {
+                        echo "<script>alert('Error adding category');</script>";
+                    }
+
+                    // Close the statement
+                    mysqli_stmt_close($stmt);
                 } else {
                     echo "<script>alert('Error moving file to destination');</script>";
                 }
@@ -224,6 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 // Close database connection
 mysqli_close($conn);
 ?>
+
 </body>
 
 
