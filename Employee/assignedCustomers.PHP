@@ -181,33 +181,7 @@ $result = $conn->query($sql);
         </div>
     </div>
 </div>
-
-</body>
-</html>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-
-</body>
-</html>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-
-        </div>
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
