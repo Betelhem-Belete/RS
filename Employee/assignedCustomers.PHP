@@ -1,3 +1,6 @@
+<?php
+include ../config/config.php;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +99,7 @@
         <div class="container-fluid">
 
         <?php
-include '../config/config.php';
+// include '../config/config.php';
 
 // Assuming US_ID = 3, AP_ID = 2, EM_ID = 1
 $ret = "SELECT * FROM assign_appointment";
@@ -181,32 +184,6 @@ $result = $conn->query($sql);
         </div>
     </div>
 </div>
-
-</body>
-</html>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-
         </div>
         <!-- /.container-fluid -->
       </div>

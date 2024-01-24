@@ -302,14 +302,13 @@ try {
 
         // Validate phone numbers using regular expressions
         $phoneRegex = '/^\+[0-9]{3}\-[0-9]{3}\-[0-9]{3}\-[0-9]{4}$/';
-
         if (!preg_match($phoneRegex, $phone1) || !preg_match($phoneRegex, $phone2)) {
             echo "<script>alert('Invalid phone number format');</script>";
             exit; // Stop execution if phone numbers are invalid
         }
 
         $stmt = $conn->prepare("INSERT INTO employee (EM_FNAME, EM_LNAME, EM_DATEOFBIRTH, EM_SEX, EM_CELLPHONE1, EM_CELLPHONE2, EM_COUNTRY, EM_CITY, EM_SUBCITY, EM_HOUSENUMBER, EM_EMAIL, EM_PASSWORD, EM_POSITION, EM_SALARY, EM_PICTURE, EM_STATUS, EM_QULAIFICATION, EM_EMERGENCY_CONTACT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
+        
         // Check if the prepare statement was successful
         if ($stmt) {
             // Bind parameters

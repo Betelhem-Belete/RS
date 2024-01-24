@@ -1,4 +1,7 @@
-<?php require "header.php"; ?>
+<?php require "header.php";
+      include '../config/config.php';
+
+?>
 
 
 <!-- Page Wrapper -->
@@ -126,7 +129,7 @@
                 <div class="formbold-input-flex">
                   <?php
                   // Connect to your database (assuming you have a config file)
-                  include '../config/config.php';
+                  // include '../config/config.php';
 
                   // Prepare and execute the query to fetch employee data
                   $sql = "SELECT EM_ID, EM_FNAME FROM employee";
@@ -144,7 +147,7 @@
                   }
 
                   // Close the database connection
-                  mysqli_close($conn);
+                  // mysqli_close($conn);
                   ?>
 
                   <div>
@@ -157,7 +160,7 @@
 
                   <?php
                   // Connect to your database (assuming you have a config file)
-                  include '../config/config.php';
+                  // include '../config/config.php';
 
                   // Prepare and execute the query to fetch customer data
                   $sql = "SELECT users.US_ID, users.US_FNAME, appointment.AP_ID FROM users INNER JOIN appointment ON users.US_ID = appointment.US_ID";
@@ -177,7 +180,7 @@
                   }
 
                   // Close the database connection
-                  mysqli_close($conn);
+                  // mysqli_close($conn);
                   ?>
 
                   <div>
@@ -208,7 +211,7 @@
                 $phone = $row['US_CELLPHONE1'];
 
                 // Close the database connection
-                mysqli_close($conn);
+                // mysqli_close($conn);
                 ?>
 
                 <div class="formbold-mb-3 formbold-input-wrapp">
@@ -226,7 +229,7 @@
 
                 <?php
                 // Connect to your database (assuming you have a config file)
-                include '../config/config.php';
+                // include '../config/config.php';
 
                 // Prepare and execute the query to fetch appointment data
                 $sql = "SELECT AP_DATE, AP_TIME FROM appointment"; // Adjust the WHERE clause if needed
@@ -243,7 +246,7 @@
                 $appointmentTime = $row['AP_TIME'];
 
                 // Close the database connection
-                mysqli_close($conn);
+                // mysqli_close($conn);
                 ?>
 
                 <div class="formbold-mb-3">
@@ -271,7 +274,7 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
   // Connect to your database (assuming you have a config file)
-    include '../config/config.php';
+    // include '../config/config.php';
 
     // Get form data
     $employeeID = $_POST['employee'];
@@ -285,7 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     // Execute the insert statement
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('Data inserted successfully');</script>";
+        echo "<script>alert('apointment sent successfully');</script>";
     } else {
         echo "<script>alert('Error inserting data: " . mysqli_error($conn) . "');</script>";
     }

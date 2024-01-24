@@ -1,4 +1,7 @@
-<?php require "header.php"; ?>
+<?php require "header.php";
+      include '../config/config.php';
+
+?>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -138,13 +141,13 @@
                 <div class="formbold-input-flex">
                   <div>
                     <label for="PR_TYPE" class="formbold-form-label"> Property Type </label>
-                    <input type="text" name="PR_TYPE" id="PR_TYPE" placeholder="property type"
+                    <input type="text" name="PR_TYPE" id="PR_TYPE" placeholder="Rent"
                       class="formbold-form-input" />
                   </div>
 
                   <div>
-                    <label for="PR_LOCATION" class="formbold-form-label">Catagoray Location </label>
-                    <input type="text" name="PR_LOCATION" id="PR_LOCATION" placeholder=" catagoray name"
+                    <label for="PR_LOCATION" class="formbold-form-label">Property Location </label>
+                    <input type="text" name="PR_LOCATION" id="PR_LOCATION" placeholder=" Property Location"
                       class="formbold-form-input" />
                   </div>
                 </div>
@@ -167,7 +170,7 @@
 
                   <div>
                     <?php
-                    include_once '../config/config.php';
+                    // include_once '../config/config.php';
                     $sql = "SELECT CAT_ID, CAT_NAME FROM category";
                     $result = $conn->query($sql);
 
@@ -277,7 +280,7 @@
     <!-- End of Footer -->
     <?php
 // Include database configuration file
-include '../config/config.php';
+// include '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $RN_SALON = $_POST['RN_SALON'];

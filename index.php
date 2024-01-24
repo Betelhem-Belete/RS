@@ -1,9 +1,6 @@
 <?php require "header&footer/header.php"; 
   // session_start();
 ?>
-<?php
-?>
-  
 
 <!-- header section strats -->
 <header class="header_section">
@@ -217,11 +214,17 @@ foreach ($rows as $row) {
             <div class="img-box">
                 <img src="./admins/img/<?php echo $row['CAT_PIC']; ?>" alt="">
             </div>
-            <div class="detail-box">
+            <div class="detail-box" onmouseover="changeColor(this, 'blue')" onmouseout="changeColor(this, 'black')"  style="color: black;">
                 <h6><?php echo $row['CAT_NAME']; ?></h6>
                 <p><?php echo $row['CAT_DESCRIPTION']; ?></p>
                 <a href="catDetails.php?cat_id=<?php echo $row['CAT_ID']; ?>" class="btn btn-primary">See more</a>
-            </div>
+                <script>
+    function changeColor(element, color) {
+        element.style.color = color;
+    }
+</script>
+              </div>
+            
         </a>
     </div>
 <?php
