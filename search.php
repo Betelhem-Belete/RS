@@ -1,8 +1,5 @@
 <?php require "header&footer/head_sub_page.php"; 
       require "./config/config.php";
-?> 
-
-<?php
 
 // Fetch all properties
 $select = mysqli_query($conn, "SELECT * FROM PROPERTY");
