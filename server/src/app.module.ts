@@ -5,6 +5,10 @@ import { todo } from './typeorm/entitiy/todo';
 import { getway } from './socket/socket.getway';
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
+import { MessageModule } from './message/message.module';
+import { Message } from './message/entities/message.entity';
+import { ChatModule } from './chat/chat.module';
+import { Chat } from './chat/entities/chat.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -14,9 +18,9 @@ import { User } from './user/entities/user.entity';
     username: 'tati', 
     password: '123',  
     database: 'test',
-    entities: [todo, User],
+    entities: [todo, User,Message,Chat],
     synchronize: true,
-  }),TodoModule, UserModule],
+  }),TodoModule, UserModule, MessageModule, ChatModule],
   providers:[getway] // this is for websoket connection 
 })
 export class AppModule {}
