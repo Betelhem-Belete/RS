@@ -28,7 +28,7 @@ function Todo() {
       if (editedTodo) {
         const url = `http://localhost:3000/todo/${editedTodo.id}`;
         const method = "PATCH";
-        await todo(url, method, { title });
+        await todo(url, method, { titlez });
         const updatedTodos = todos.map((todo) =>
           todo.id === editedTodo.id ? { ...todo, title } : todo
         );

@@ -1,146 +1,103 @@
-import {useEffect, useState}from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBIcon,
-  MDBBtn,
-  MDBTypography,
-  MDBTextArea,
-  MDBCardHeader,
-} from "mdb-react-ui-kit";
+import React, { useEffect, useState } from "react";
 import { todo } from "../hooks/usetodo";
-/////////
+import "./chat.css"; // Import CSS file for styling
+
 export default function Chat_pg() {
-  const [data, setData] = useState([])
-  const url = 'http://localhost:3000/user/'
-  const method = 'GET'
-  useEffect(()=>{
-    async function chat(){
-      const chats = await todo(url, method)
-      setData(chats);
+  const [data, setData] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [room, setRoom] = useState(null);
+  const [message, setMessage] = useState("");
+  const [chatMessages, setChatMessages] = useState([]);
+
+  const url = 'http://localhost:3000/user/';
+  const method = 'GET';
+
+  const handleSearch = async () => {
+    const chats = await todo(url, method);
+    setData(chats);
+  };
+
+  // const handleUserClick = (user) => {
+  //   setSelectedUser(user);
+  //   // Assume you have a method to join a room with the selected user
+  //   const newRoom = joinRoom(user.id); // Your implementation to join room
+  //   setRoom(newRoom);
+  // };
+  const handleUserClick = async (user) => {
+    setSelectedUser(user);
+    // Send a POST request to create a chat with the selected user
+    try {
+      const response = await fetch('http://localhost:3000/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          senderId: loggedInUserId, // Assuming you have the loggedInUserId
+          receiverId: user.id,
+        }),
+      });
+      if (response.ok) {
+        const chatData = await response.json();
+        // Use the chat data to join the chat room
+        const newRoom = joinRoom(chatData.Id); // Your implementation to join room
+        setRoom(newRoom);
+      } else {
+        throw new Error('Failed to create chat');
+      }
+    } catch (error) {
+      console.error('Error creating chat:', error);
     }
-    chat()
-  },[])
+  };
+  const handleMessageSend = () => {
+    if (message.trim() !== "") {
+      // Assume you have a method to send message to the room
+      sendMessage(room, message); // Your implementation to send message
+      // Update chatMessages state with sent message
+      setChatMessages([...chatMessages, { sender: "me", message }]);
+      setMessage(""); // Clear message input after sending
+    }
+  };
+
   return (
-    <MDBContainer fluid className="py-5" style={{ backgroundColor: "#eee" }}>
-      <MDBRow>
-        <MDBCol md="6" lg="5" xl="4" className="mb-4 mb-md-0">
-          <h5 className="font-weight-bold mb-3 text-center text-lg-start">
-            Member
-          </h5>
-
-          <MDBCard>
-            <MDBCardBody>
-              <MDBTypography listUnStyled className="mb-0">
-            {data && data?.map((data)=>(
-                  <li className="p-2 border-bottom" key={data.id}>
-                  <a href="#!" className="d-flex justify-content-between">
-                    <div className="d-flex flex-row">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp"
-                        alt="avatar"
-                        className="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                        width="60"
-                      />
-                      <div className="pt-1">
-                        <p className="fw-bold mb-0">{data.email}</p>
-                        {/* <p className="small text-muted">
-                          Lorem ipsum dolor sit.
-                        </p> */}
-                      </div>
-                    </div>
-                  
-                  </a>
-                </li>
-            ))}
-              </MDBTypography>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-
-        <MDBCol md="6" lg="7" xl="8">
-          <MDBTypography listUnStyled>
-            <li className="d-flex justify-content-between mb-4">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                width="60"
+    <div className="chat-container">
+      <div className="search-bar">
+        <input type="text" placeholder="Search" />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+      <div className="user-list">
+        <h2>User List</h2>
+        <ul>
+          {data && data.map((user) => (
+            <li key={user.id} onClick={() => handleUserClick(user)}>
+              {user.email}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="chat">
+        {selectedUser && (
+          <div className="chat-box">
+            <h3>Chatting with {selectedUser.name}</h3>
+            <div className="message-container">
+              {chatMessages.map((msg, index) => (
+                <div key={index} className={`message ${msg.sender === 'me' ? 'sent' : 'received'}`}>
+                  <p>{msg.sender}: {msg.message}</p>
+                </div>
+              ))}
+            </div>
+            <div className="message-input">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type your message..."
               />
-              <MDBCard>
-                <MDBCardHeader className="d-flex justify-content-between p-3">
-                  <p className="fw-bold mb-0">Brad Pitt</p>
-                  <p className="text-muted small mb-0">
-                    <MDBIcon far icon="clock" /> 12 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <MDBCard className="w-100">
-                <MDBCardHeader className="d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Lara Croft</p>
-                  <p class="text-muted small mb-0">
-                    <MDBIcon far icon="clock" /> 13 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                width="60"
-              />
-            </li>
-            <li className="d-flex justify-content-between mb-4">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                width="60"
-              />
-              <MDBCard>
-                <MDBCardHeader className="d-flex justify-content-between p-3">
-                  <p className="fw-bold mb-0">Brad Pitt</p>
-                  <p className="text-muted small mb-0">
-                    <MDBIcon far icon="clock" /> 10 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            
-            </li>
-            <li className="bg-white mb-3">
-              <MDBTextArea label="Message" id="textAreaExample" rows={4} />
-            </li>
-            <MDBBtn color="info" rounded className="float-end">
-              Send
-            </MDBBtn>
-          </MDBTypography>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+              <button onClick={handleMessageSend}>Send</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

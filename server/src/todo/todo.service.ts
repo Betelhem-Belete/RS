@@ -4,18 +4,45 @@ import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { todo } from 'src/typeorm/entitiy/todo';
+import { MyWebSocketGateway } from '../socket/websocket.gateway';
+import { Notification } from 'src/notification/entities/notification.entity';
+import { NotificationGateway } from '../notification/notification.controller'; // Import your WebSocketGateway
 
 @Injectable()
 export class TodoService {
-  constructor(@InjectRepository(todo)private todoRepository : Repository<todo>){}
+  ///////////
+  constructor(
+    @InjectRepository(todo)
+    private todoRepository: Repository<todo>,
+    @InjectRepository(Notification)
+    private notifRepository: Repository<Notification>,
+    private readonly notificationGateway: NotificationGateway, // Inject NotificationGateway
+  ) {}
+/////////////////
   async create(createTodoDto: CreateTodoDto) {
+    // Create a new todo entity with the data from createTodoDto
     const todo = await this.todoRepository.create({
-      ...createTodoDto,
-      createdAt: Date()
-    }
-    )
-    return this.todoRepository.save(todo)
+      title: createTodoDto.title,
+      createdAt: new Date(),
+    });
+  
+    // Save the new todo entity to the database
+    const savedTodo = await this.todoRepository.save(todo);
+
+    // Create a new notification entity
+    const notification = await this.notifRepository.create({
+      message: createTodoDto.title, // Adjust this according to your data structure
+    });
+    console.log(notification.message)
+    // Save the new notification entity to the database
+    const savedNotification = await this.notifRepository.save(notification);
+
+    // Emit notification to admins using NotificationGateway
+    await this.notificationGateway.emitNotificationToAdmins(savedNotification);
+
+    return savedTodo;
   }
+  
 
   async findAll() {
     const data = await this.todoRepository.find({

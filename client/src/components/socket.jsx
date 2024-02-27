@@ -1,57 +1,68 @@
-import React, { useEffect, useState } from 'react';
+// ChatComponent.jsx
+
+import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import '../App.css';
 
-const SERVER_URL = 'http://localhost:3000'; // Replace with your server URL
+const token = localStorage.getItem('access_token')
 
-function Socket() {
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [socket, setSocket] = useState(null);
+if(token){
+  const {access_token} = JSON.parse(token);
 
-  useEffect(() => {
-    const newSocket = io(SERVER_URL);
-    setSocket(newSocket);
+console.log(access_token)
+const socket = io('http://localhost:3000', {
+  extraHeaders: {
+    Authorization: `Bearer ${access_token}`
+  }
+});
+}
 
-    newSocket.on('message', (message) => {
+const ChatComponent = () => {
+  const [roomId, setRoomId] = useState('');
+  const [message, setMessage] = useState('');
+  const [receivedMessages, setReceivedMessages] = useState([]);
 
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
+  // useEffect(() => {
+  //   // Listener for incoming messages
+  //   socket.on('connection', (message) => {
 
-    return () => {
-      newSocket.disconnect();
-    };
-  }, []);
+  //     setReceivedMessages(prevMessages => [...prevMessages, message]);
+  //   });
 
-  const sendMessage = () => {
-    
-    if (socket && inputMessage.trim() !== '') {
-      socket.emit('message', inputMessage);
-      setInputMessage('');
-    }
+  //   // Clean up function to remove the listener when component unmounts
+  //   return () => {
+  //     socket.off('connection');
+  //   };
+  // }, []);
+
+  const handleJoinRoom = () => {
+    socket.emit('joinRoom', roomId);
+  };
+
+  const handleMessageSend = () => {
+    // Emit 'sendMessage' event with message and room ID
+    socket.emit('sendMessage', { room: roomId, message });
+    // Clear the message input after sending
+    setMessage('');
   };
 
   return (
-    <div className="container">
-      <h1>let's Chat</h1>
-      <div className="messages">
-        {messages.map((message, index) => (
-          <div key={index} className="message">
-            {message}
-          </div>
+    <div>
+      <h1>Chat Component</h1>
+      <div>
+        <input type="text" placeholder="Enter Room ID" value={roomId} onChange={(e) => setRoomId(e.target.value)} />
+        <button onClick={handleJoinRoom}>Join Room</button>
+      </div>
+      <div>
+        {receivedMessages.map((msg, index) => (
+          <div key={index}>{msg}</div>
         ))}
       </div>
-      <div className="input">
-        <input
-          type="text"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Type your message..."
-        />
-        <button onClick={sendMessage}>Send</button>
+      <div>
+        <input type="text" placeholder="Enter Message" value={message} onChange={(e) => setMessage(e.target.value)} />
+        <button onClick={handleMessageSend}>Send Message</button>
       </div>
     </div>
   );
-}
+};
 
-export default Socket;
+export default ChatComponent;
