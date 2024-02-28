@@ -46,6 +46,7 @@ export class NotificationGateway implements OnModuleInit {
           ...payload,
           socketId: socket.id,
         });
+        
       } catch (error) {
         if (error instanceof TokenExpiredError) {
           console.log('Token expired');
@@ -56,10 +57,8 @@ export class NotificationGateway implements OnModuleInit {
         return;
       }
     });
+    
   }
-
-
-
   async emitNotificationToAdmins(notification) {
     // Filter users by role
     const adminSockets = Array.from(this.socketMap.values()).filter(socketMeta => socketMeta.role === 'admin');
