@@ -12,6 +12,7 @@ import { Chat } from './chat/entities/chat.entity';
 import { NotificationModule } from './notification/notification.module';
 import { Notification } from './notification/entities/notification.entity';
 import { NotificationGateway } from './notification/notification.controller';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -23,7 +24,7 @@ import { NotificationGateway } from './notification/notification.controller';
     database: 'test',
     entities: [todo, User,Message,Chat,Notification],
     synchronize: true,
-  }),TodoModule, UserModule, MessageModule, ChatModule, NotificationModule],
+  }),TodoModule, UserModule, MessageModule, ChatModule, NotificationModule, AdminModule],
   providers:[NotificationGateway] // this is for websoket connection 
 })
 export class AppModule {}

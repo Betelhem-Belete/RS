@@ -36,9 +36,10 @@ export class TodoService {
     console.log(notification.message)
     // Save the new notification entity to the database
     const savedNotification = await this.notifRepository.save(notification);
+    const role = "admin"
 
     // Emit notification to admins using NotificationGateway
-    await this.notificationGateway.emitNotificationToAdmins(savedNotification);
+    await this.notificationGateway.emitNotificationToAdmins(savedNotification,role);
 
     return savedTodo;
   }

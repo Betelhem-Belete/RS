@@ -1,103 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
 import { todo } from "../hooks/usetodo";
-import "./chat.css"; // Import CSS file for styling
 
-export default function Chat_pg() {
-  const [data, setData] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [room, setRoom] = useState(null);
-  const [message, setMessage] = useState("");
-  const [chatMessages, setChatMessages] = useState([]);
+const SendMessageComponent = () => {
+  const [role, setRole] = useState('');
+  const [message, setMessage] = useState('');
+  const departments = ['Finance', 'Accounting', 'Sales']; // Add more departments as needed
 
-  const url = 'http://localhost:3000/user/';
-  const method = 'GET';
-
-  const handleSearch = async () => {
-    const chats = await todo(url, method);
-    setData(chats);
-  };
-
-  // const handleUserClick = (user) => {
-  //   setSelectedUser(user);
-  //   // Assume you have a method to join a room with the selected user
-  //   const newRoom = joinRoom(user.id); // Your implementation to join room
-  //   setRoom(newRoom);
-  // };
-  const handleUserClick = async (user) => {
-    setSelectedUser(user);
-    // Send a POST request to create a chat with the selected user
+  const handleSend = async () => {
+    const url = "http://localhost:3000/admin";
+    const method = "POST";
     try {
-      const response = await fetch('http://localhost:3000/chat', {
-        method: 'POST',
+      const data = await fetch(url, {
+        method: method,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          senderId: loggedInUserId, // Assuming you have the loggedInUserId
-          receiverId: user.id,
-        }),
+        body: JSON.stringify({ message: message, role: role }) // Send message and role in the request body
       });
-      if (response.ok) {
-        const chatData = await response.json();
-        // Use the chat data to join the chat room
-        const newRoom = joinRoom(chatData.Id); // Your implementation to join room
-        setRoom(newRoom);
-      } else {
-        throw new Error('Failed to create chat');
-      }
+      console.log(data);
+      console.log('notification sented');
     } catch (error) {
-      console.error('Error creating chat:', error);
+      console.log(error);
     }
   };
-  const handleMessageSend = () => {
-    if (message.trim() !== "") {
-      // Assume you have a method to send message to the room
-      sendMessage(room, message); // Your implementation to send message
-      // Update chatMessages state with sent message
-      setChatMessages([...chatMessages, { sender: "me", message }]);
-      setMessage(""); // Clear message input after sending
-    }
+
+  const handleDepartmentChange = event => {
+    setRole(event.target.value); // Update role state
+  };
+
+  const handleMessageChange = event => {
+    setMessage(event.target.value); // Update message state
   };
 
   return (
-    <div className="chat-container">
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-      <div className="user-list">
-        <h2>User List</h2>
-        <ul>
-          {data && data.map((user) => (
-            <li key={user.id} onClick={() => handleUserClick(user)}>
-              {user.email}
-            </li>
+    <div className="container">
+      <h2>Send Message</h2>
+      <div className="mb-3">
+        <label htmlFor="department" className="form-label">Select Department:</label>
+        <select id="department" value={role} onChange={handleDepartmentChange} className="form-select">
+          <option value="">Select Department</option>
+          {departments.map(department => (
+            <option key={department} value={department}>
+              {department}
+            </option>
           ))}
-        </ul>
+        </select>
       </div>
-      <div className="chat">
-        {selectedUser && (
-          <div className="chat-box">
-            <h3>Chatting with {selectedUser.name}</h3>
-            <div className="message-container">
-              {chatMessages.map((msg, index) => (
-                <div key={index} className={`message ${msg.sender === 'me' ? 'sent' : 'received'}`}>
-                  <p>{msg.sender}: {msg.message}</p>
-                </div>
-              ))}
-            </div>
-            <div className="message-input">
-              <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type your message..."
-              />
-              <button onClick={handleMessageSend}>Send</button>
-            </div>
-          </div>
-        )}
+      <div className="mb-3">
+        <label htmlFor="message" className="form-label">Message:</label>
+        <textarea id="message" value={message} onChange={handleMessageChange} className="form-control"></textarea>
       </div>
+      <button onClick={handleSend} className="btn btn-primary">Send</button>
     </div>
   );
-}
+};
+
+export default SendMessageComponent;
